@@ -24,22 +24,35 @@ From this directory:
 python -m ai_agent_standards_mcp
 ```
 
-Or run directly from the source checkout with the scripts in `scripts/`:
+Or run directly from the source checkout with the cross-platform python script:
+
+```bash
+python scripts/run-mcp.py
+```
+
+Other platform-specific launcher scripts are also available in `scripts/`:
 
 ```powershell
-.\scripts\run-mcp.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\run-mcp.ps1
 ```
 
 ```cmd
 scripts\run-mcp.cmd
 ```
 
-Do not double-click the stdio launchers above. `stdio` is for MCP clients and
-expects JSON-RPC messages on stdin.
+```bash
+./scripts/run-mcp.sh
+```
 
-For manual Windows use, open CMD or PowerShell first, then run the command from
-that terminal. Do not launch the stdio scripts from Windows Explorer.
+Do not double-click the stdio launchers above. `stdio` is for MCP clients and expects JSON-RPC messages on stdin.
 
+For manual Windows use, open CMD or PowerShell first, then run the command from that terminal.
+
+> [!TIP]
+> **Recommended for MCP Client Configurations (like Claude Desktop)**:
+> Use the Python launcher `python scripts/run-mcp.py` or the batch file `scripts/run-mcp.cmd` in your settings. Avoid using the PowerShell `.ps1` script as a client stdio command, as PowerShell's wrapper pipeline writes an initial newline on startup, triggering an EOF validation error.
+
+For Unix/Linux:
 ```bash
 ./scripts/run-mcp.sh
 ```

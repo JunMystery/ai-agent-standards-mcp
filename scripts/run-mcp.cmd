@@ -17,5 +17,26 @@ if "%PYTHONPATH%"=="" (
     set "PYTHONPATH=%SRC_PATH%;%PYTHONPATH%"
 )
 
+:: Detect if the script was double-clicked from Windows Explorer
+:: If cmdcmdline contains '/c' and references the script name, it's typically an Explorer launch
+set "IS_EXPLORER=0"
+echo %cmdcmdline% | findstr /i /c:"/c" >nul
+if %errorlevel% equ 0 (
+    echo %cmdcmdline% | findstr /i /c:"run-mcp.cmd" >nul
+    if %errorlevel% equ 0 set "IS_EXPLORER=1"
+)
+
+if "%IS_EXPLORER%"=="1" (
+    if "%~1"=="" (
+        echo [INFO] Detected launch from Windows Explorer.
+        echo [INFO] Starting MCP server with Streamable HTTP transport...
+        "%PYTHON%" -m ai_agent_standards_mcp --transport streamable-http
+        echo.
+        echo MCP server stopped.
+        pause
+        exit /b 0
+    )
+)
+
 "%PYTHON%" -m ai_agent_standards_mcp %*
 exit /b %ERRORLEVEL%

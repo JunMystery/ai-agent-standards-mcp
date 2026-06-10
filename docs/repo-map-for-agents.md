@@ -18,11 +18,12 @@ These files are generated. Edit `karpathy/principles.md`, `rules/agent-manifest.
 
 - `karpathy/`: source of truth for the 6 Core Principles and examples.
 - `rules/`: manifest and templates used to generate agent instruction files.
-- `scripts/`: setup, security audit, and rules generation automation.
-- `skills/`: on-demand workflow capsules. Do not treat the full directory as always-loaded context.
-- `ai-agent-standards/`: framework documentation, standards, checklists, prompts, risk guidance, compliance, and multi-agent docs.
-- `docs/`: maintainer-facing docs for repo structure and rules generation.
-- `.github/`: PR template and CI workflows.
+- `scripts/`: Server launchers (run-mcp.py, run-mcp.cmd, run-mcp.sh, run-mcp.ps1).
+- `src/`: Python source code for the MCP server.
+- `tests/`: Pytest test suite for the server and catalog.
+- `skills/`: On-demand workflow capsules.
+- `ai-agent-standards/`: Framework documentation, standards, checklists, prompts, and compliance docs.
+- `docs/`: Maintainer-facing documentation for the repository.
 
 ## Common Workflows
 

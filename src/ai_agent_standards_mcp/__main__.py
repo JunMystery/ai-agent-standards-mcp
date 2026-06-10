@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 
 from .catalog import find_standards_root
 from .server import create_server
@@ -35,10 +36,13 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
-    args = parse_args()
-    root = find_standards_root(args.root)
-    server = create_server(root, host=args.host, port=args.port)
-    server.run(transport=args.transport)
+    try:
+        args = parse_args()
+        root = find_standards_root(args.root)
+        server = create_server(root, host=args.host, port=args.port)
+        server.run(transport=args.transport)
+    except KeyboardInterrupt:
+        sys.exit(0)
 
 
 if __name__ == "__main__":
