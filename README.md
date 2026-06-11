@@ -135,6 +135,14 @@ Prompts:
 - `rollback(revision="")` - emergency state rollback (AWF `/rollback`).
 - `recap(session_id="")` - workspace context restoration (AWF `/recap`).
 
+### How to Invoke Prompts (Slash Commands) in MCP Clients
+
+- **Claude Desktop**: Type `/` in the chat input box to show the list of available slash command prompts (e.g., `/plan`, `/code`, `/debug`). Select the prompt, fill in its arguments, and run.
+- **VS Code & Cursor Extensions (Cline / Roo-Code)**:
+  - Access registered prompts directly via the MCP Prompts UI list.
+  - Or, instruct the agent directly in the chat, for example: *"Chạy prompt `plan` thiết kế hệ thống đăng nhập"* (Run prompt `plan` to design login system) or *"Gọi prompt `debug` lỗi database connection refused"*.
+- **Auto-Discovery**: Since individual detailed skills (like `accessibility`, `api-design`, etc.) are registered as resources and tools, the AI agent will automatically search and load them on-demand when it detects matching keywords in your prompt. You do not need to manually call them most of the time.
+
 ## Bundled Corpus
 
 The repository carries its own copy of:
