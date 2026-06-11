@@ -11,9 +11,26 @@ auto-discovery instruction files such as `AGENTS.md`, `CLAUDE.md`, and
 
 ## Install
 
+### Automatic Installation (Recommended)
+This script automatically sets up the python virtual environment, installs dependencies, and registers the server with your Claude Desktop configuration:
+
+- **Linux / macOS**:
+  ```bash
+  python3 scripts/install-mcp.py
+  ```
+- **Windows**:
+  ```powershell
+  python scripts/install-mcp.py
+  ```
+
+### Manual Installation
+If you prefer to set up manually:
 ```bash
 python -m venv .venv
+# On Windows:
 .venv\Scripts\pip install -e ".[dev]"
+# On Linux / macOS:
+.venv/bin/pip install -e ".[dev]"
 ```
 
 ## Run
