@@ -1,4 +1,4 @@
-# AI Agent Standards MCP (v3.0.0)
+# AI Agent Standards MCP (v3.0.1)
 
 Model Context Protocol server for the AI Agent Coding Standards corpus (supporting skill set `v3.0.0`).
 
