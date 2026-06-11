@@ -1,12 +1,13 @@
 # Local Skills
 
-This directory contains on-demand skill capsules ported from the ECC workflow into this repository. Credit: ECC for the source skill ideas and structure.
+This directory contains on-demand skill capsules ported from the ECC workflow and AWF (Antigravity Workflow Framework) into this repository.
 
 Each skill is a standalone Markdown file that should be loaded only when the task matches its trigger.
 
 ## Implemented Skills
 
 - `accessibility`
+- `adaptive-language`
 - `agent-architecture-audit`
 - `agent-eval`
 - `agent-harness-construction`
@@ -23,6 +24,7 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `api-design`
 - `architecture-decision-records`
 - `article-writing`
+- `auto-save`
 - `automation-audit-ops`
 - `autonomous-agent-harness`
 - `autonomous-loops`
@@ -47,11 +49,12 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `codex-vscode`
 - `coding-standards`
 - `compose-multiplatform-patterns`
-- `configure-ecc`
+- `configure-mcp`
 - `connections-optimizer`
 - `content-engine`
 - `content-hash-cache-pattern`
 - `context-budget`
+- `context-help`
 - `continuous-agent-loop`
 - `continuous-learning`
 - `continuous-learning-v2`
@@ -84,12 +87,11 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `dotnet-patterns`
 - `dynamic-workflow-mode`
 - `e2e-testing`
-- `ecc-guide`
-- `ecc-tools-cost-audit`
 - `email-ops`
 - `energy-procurement`
 - `enterprise-agent-ops`
 - `error-handling`
+- `error-translator`
 - `eval-harness`
 - `evm-token-decimals`
 - `exa-search`
@@ -99,6 +101,7 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `flox-environments`
 - `flutter-dart-code-review`
 - `foundation-models-on-device`
+- `framework-onboarding`
 - `frontend-a11y`
 - `frontend-design-direction`
 - `frontend-patterns`
@@ -237,6 +240,7 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `security-review`
 - `security-scan`
 - `seo`
+- `session-restore`
 - `skill-comply`
 - `skill-scout`
 - `skill-stocktake`
@@ -246,6 +250,7 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `springboot-security`
 - `springboot-tdd`
 - `springboot-verification`
+- `standards-guide`
 - `strategic-compact`
 - `swift-actor-persistence`
 - `swift-concurrency-6-2`
@@ -257,6 +262,7 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `terminal-ops`
 - `tinystruct-patterns`
 - `token-budget-advisor`
+- `tools-cost-audit`
 - `ui-demo`
 - `ui-to-vue`
 - `uncloud`
@@ -267,6 +273,27 @@ Each skill is a standalone Markdown file that should be loaded only when the tas
 - `visa-doc-translate`
 - `vite-patterns`
 - `windows-desktop-e2e`
+- `workflow-audit`
+- `workflow-awf-update`
+- `workflow-brainstorm`
+- `workflow-code`
+- `workflow-customize`
+- `workflow-debug`
+- `workflow-deploy`
+- `workflow-design`
+- `workflow-help`
+- `workflow-init`
+- `workflow-next`
+- `workflow-plan`
+- `workflow-readme`
+- `workflow-recap`
+- `workflow-refactor`
+- `workflow-review`
+- `workflow-rollback`
+- `workflow-run`
+- `workflow-save_brain`
+- `workflow-test`
+- `workflow-visualize`
 - `workspace-surface-audit`
 - `x-api`
 

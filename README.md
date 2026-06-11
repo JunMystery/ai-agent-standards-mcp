@@ -121,6 +121,19 @@ Prompts:
 
 - `apply_standards(task, focus="general")` - produce a standards-aware work prompt.
 - `review_ai_code(scope="the current diff")` - produce a review prompt grounded in the framework.
+- `init(project_name="")` - start a new project workflow (AWF `/init`).
+- `plan(task)` - plan a feature design (AWF `/plan`).
+- `design(feature)` - technical architecture design (AWF `/design`).
+- `visualize(ui_description="")` - UI/UX mockup design (AWF `/visualize`).
+- `code(task)` - high-quality coding implementation (AWF `/code`).
+- `run(environment="local")` - launch/run application checks (AWF `/run`).
+- `test(test_target="")` - test code & write test suites (AWF `/test`).
+- `deploy(target="production")` - product deployment safety checks (AWF `/deploy`).
+- `debug(error_message)` - systematic debugging protocol (AWF `/debug`).
+- `refactor(target_file)` - safe code refactoring guidelines (AWF `/refactor`).
+- `audit(scope="security")` - health & security audits (AWF `/audit`).
+- `rollback(revision="")` - emergency state rollback (AWF `/rollback`).
+- `recap(session_id="")` - workspace context restoration (AWF `/recap`).
 
 ## Bundled Corpus
 

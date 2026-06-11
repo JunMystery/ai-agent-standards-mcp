@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://awf.dev/schemas/session.schema.json",
+  "title": "AWF Session State Schema",
+  "description": "Dynamic session state with 3-tier context system for Eternal Context",
+  "version": "2.0.0",
+  "type": "object",
+  "required": ["updated_at", "summary"],
+  "properties": {
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    },
+    "message_count": {
+      "type": "integer",
+      "description": "Estimated message count for token calculation",
+      "default": 0
+    },
+    "summary": {
+      "type": "object",
+      "description": "TIER 1 - Quick summary for fast loading (~200 tokens)",
+      "properties": {
+        "project": { "type": "string", "description": "Project name" },
+        "current_feature": { "type": "string", "description": "What user is working on" },
+        "current_task": { "type": "string", "description": "Specific task" },
+        "status": { "type": "string", "enum": ["planning", "coding", "testing", "debugging", "reviewing", "deploying"] },
+        "progress_percent": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "last_action": { "type": "string", "description": "Last completed action" },
+        "next_step": { "type": "string", "description": "Suggested next step" },
+        "blockers_count": { "type": "integer", "default": 0 }
+      },
+      "required": ["project", "status"]
+    },
+    "working_on": {
+      "type": "object",
+      "description": "Current work in progress",
+      "properties": {
+        "feature": { "type": "string", "description": "Feature name" },
+        "task": { "type": "string", "description": "Current task" },
+        "status": {
+          "type": "string",
+          "enum": ["planning", "coding", "testing", "debugging", "reviewing"],
+          "description": "Task status"
+        },
+        "current_plan_path": {
+          "type": "string",
+          "description": "Path to current plan folder (e.g., plans/260117-1430-orders/)"
+        },
+        "current_phase": {
+          "type": "string",
+          "description": "Current phase being worked on (e.g., phase-03)"
+        },
+        "files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Files being modified"
+        },
+        "blockers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Current blockers"
+        },
+        "notes": { "type": "string", "description": "Quick notes" }
+      }
+    },
+    "pending_tasks": {
+      "type": "array",
+      "description": "Tasks to do next",
+      "items": {
+        "type": "object",
+        "properties": {
+          "task": { "type": "string" },
+          "priority": { "type": "string", "enum": ["high", "medium", "low"] },
+          "notes": { "type": "string" }
+        },
+        "required": ["task", "priority"]
+      }
+    },
+    "recent_changes": {
+      "type": "array",
+      "description": "Recent changes in this session",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "type": { "type": "string", "enum": ["feature", "bugfix", "refactor", "config", "docs"] },
+          "description": { "type": "string" },
+          "files": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "errors_encountered": {
+      "type": "array",
+      "description": "Errors encountered and solutions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "solution": { "type": "string" },
+          "resolved": { "type": "boolean" }
+        }
+      }
+    },
+    "decisions_made": {
+      "type": "array",
+      "description": "Technical decisions made this session",
+      "items": {
+        "type": "object",
+        "properties": {
+          "decision": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "skipped_tests": {
+      "type": "array",
+      "description": "Tests that were skipped due to fix failures - blocks deploy!",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test": { "type": "string", "description": "Test file name" },
+          "reason": { "type": "string", "description": "Why it was skipped" },
+          "date": { "type": "string", "format": "date-time" }
+        },
+        "required": ["test", "date"]
+      }
+    },
+    "context_checkpoints": {
+      "type": "array",
+      "description": "Auto-save checkpoints for context recovery",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "trigger": { "type": "string", "enum": ["workflow_end", "user_leaving", "decision_made", "periodic", "emergency"] },
+          "summary": { "type": "string", "description": "Compressed summary at checkpoint" },
+          "message_count": { "type": "integer" }
+        }
+      }
+    },
+    "auto_save_config": {
+      "type": "object",
+      "description": "Eternal Context System settings",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "notify_on_save": { "type": "boolean", "default": true },
+        "checkpoint_interval": { "type": "integer", "default": 15, "description": "Save every N messages" },
+        "warn_threshold": { "type": "integer", "default": 80, "description": "Warn at N% context usage" }
+      }
+    }
+  }
+}

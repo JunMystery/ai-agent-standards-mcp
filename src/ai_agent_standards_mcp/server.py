@@ -120,3 +120,91 @@ def register_handlers(mcp: Any, catalog: StandardsCatalog) -> None:
                 "- karpathy/principles.md",
             ]
         )
+
+    @mcp.prompt()
+    def init(project_name: str = "") -> str:
+        """Khởi tạo dự án mới (AWF /init)"""
+        content = catalog.read_entry("workflow-init")
+        if project_name:
+            return f"{content}\n\nProject Name: {project_name}"
+        return content
+
+    @mcp.prompt()
+    def plan(task: str) -> str:
+        """Lên kế hoạch thiết kế tính năng (AWF /plan)"""
+        content = catalog.read_entry("workflow-plan")
+        return f"{content}\n\nTask to plan: {task}"
+
+    @mcp.prompt()
+    def design(feature: str) -> str:
+        """Thiết kế kỹ thuật cho tính năng (AWF /design)"""
+        content = catalog.read_entry("workflow-design")
+        return f"{content}\n\nFeature to design: {feature}"
+
+    @mcp.prompt()
+    def visualize(ui_description: str = "") -> str:
+        """Thiết kế giao diện UI/UX (AWF /visualize)"""
+        content = catalog.read_entry("workflow-visualize")
+        if ui_description:
+            return f"{content}\n\nUI Description: {ui_description}"
+        return content
+
+    @mcp.prompt()
+    def code(task: str) -> str:
+        """Lập trình tính năng chất lượng cao (AWF /code)"""
+        content = catalog.read_entry("workflow-code")
+        return f"{content}\n\nTask to implement:\n{task}"
+
+    @mcp.prompt()
+    def run(environment: str = "local") -> str:
+        """Khởi chạy ứng dụng (AWF /run)"""
+        content = catalog.read_entry("workflow-run")
+        return f"{content}\n\nTarget environment: {environment}"
+
+    @mcp.prompt()
+    def test(test_target: str = "") -> str:
+        """Chạy test cases & tự động viết test (AWF /test)"""
+        content = catalog.read_entry("workflow-test")
+        if test_target:
+            return f"{content}\n\nTest target: {test_target}"
+        return content
+
+    @mcp.prompt()
+    def deploy(target: str = "production") -> str:
+        """Triển khai ứng dụng lên production/staging (AWF /deploy)"""
+        content = catalog.read_entry("workflow-deploy")
+        return f"{content}\n\nDeploy target: {target}"
+
+    @mcp.prompt()
+    def debug(error_message: str) -> str:
+        """Phân tích và sửa lỗi tự động (AWF /debug)"""
+        content = catalog.read_entry("workflow-debug")
+        return f"{content}\n\nError/Bug Description:\n{error_message}"
+
+    @mcp.prompt()
+    def refactor(target_file: str) -> str:
+        """Tối ưu hóa và dọn dẹp code an toàn (AWF /refactor)"""
+        content = catalog.read_entry("workflow-refactor")
+        return f"{content}\n\nFile or module to refactor: {target_file}"
+
+    @mcp.prompt()
+    def audit(scope: str = "security") -> str:
+        """Kiểm tra sức khỏe dự án (AWF /audit)"""
+        content = catalog.read_entry("workflow-audit")
+        return f"{content}\n\nAudit scope: {scope}"
+
+    @mcp.prompt()
+    def rollback(revision: str = "") -> str:
+        """Khôi phục về trạng thái cũ an toàn (AWF /rollback)"""
+        content = catalog.read_entry("workflow-rollback")
+        if revision:
+            return f"{content}\n\nRollback revision/commit: {revision}"
+        return content
+
+    @mcp.prompt()
+    def recap(session_id: str = "") -> str:
+        """Khôi phục ngữ cảnh làm việc từ session cũ (AWF /recap)"""
+        content = catalog.read_entry("workflow-recap")
+        if session_id:
+            return f"{content}\n\nSession ID: {session_id}"
+        return content
