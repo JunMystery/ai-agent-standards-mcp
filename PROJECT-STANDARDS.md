@@ -28,6 +28,4 @@ This file contains standards, conventions, and rules specific to this project. A
 
 ## 📋 Project Standards List (Customize below)
 
-*(You can check the `PROJECT-STANDARDS-EXAMPLE.md` file in the same directory for available template examples and copy/paste them here to enforce them as hard rules for your project)*
-
 <!-- ADD YOUR STANDARDS BELOW -->
