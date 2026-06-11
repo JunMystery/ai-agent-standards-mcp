@@ -2,6 +2,21 @@
 
 Track versions and updates for the AI Agent Coding Standards framework.
 
+## [3.0.3] - 2026-06-11
+
+### Added
+- **Cursor Native Auto-Installation:** Updated `scripts/install-mcp.py` to automatically detect and configure the `ai-agent-standards-mcp` server inside the global Cursor configuration file `~/.cursor/mcp.json` (for Cursor Native MCP).
+
+## [3.0.2] - 2026-06-11
+
+### Added
+- **Codex Auto-Installation:** Updated `scripts/install-mcp.py` to automatically detect and configure the `ai-agent-standards-mcp` server inside the global Codex config file `~/.codex/config.toml` (for Codex CLI & VS Code/Codex App extension).
+
+## [3.0.1] - 2026-06-11
+
+### Fixed
+- **VS Code MCP Client Activation:** Fixed `scripts/run-mcp.cmd` false-positive Explorer-click detection that triggered HTTP transport instead of stdio, and executed `pause`, causing VS Code to hang during extension activation. Stdin is now verified using `timeout` before invoking interactive launcher behavior.
+
 ## [3.0.0] - 2026-06-11
 
 ### Fixed
@@ -228,6 +243,10 @@ Track versions and updates for the AI Agent Coding Standards framework.
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
+| 3.0.3 | 2026-06-11 | Add Cursor Native auto-installation support in scripts/install-mcp.py | Released |
+| 3.0.2 | 2026-06-11 | Add Codex auto-installation support in scripts/install-mcp.py | Released |
+| 3.0.1 | 2026-06-11 | Fix VS Code MCP client activation hang in run-mcp.cmd wrapper script | Released |
+| 3.0.0 | 2026-06-11 | Major release: Pipeline documentation parity, review checklist parity, large-file audit scope filtering | Released |
 | 2.6.1 | 2026-06-05 | Pipeline documentation parity, review checklist parity, large-file audit scope filtering | Released |
 | 2.6.0 | 2026-06-05 | Generated rule files, manifest-based setup, large-file refactor skill, repo map docs | Released |
 | 2.3.0 | 2026-05-25 | Expanded ECC-derived general on-demand skill set, agent discovery wiring, version synchronization | Released |
