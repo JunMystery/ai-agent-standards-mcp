@@ -33,15 +33,13 @@ def main():
     
     # Determine python executable path in venv
     if os.name == "nt":
-        pip_exe = venv_dir / "Scripts" / "pip.exe"
         python_exe = venv_dir / "Scripts" / "python.exe"
     else:
-        pip_exe = venv_dir / "bin" / "pip"
         python_exe = venv_dir / "bin" / "python"
         
     # 2. Install dependencies
     print("Installing packages and dependencies in editable mode...")
-    subprocess.run([str(pip_exe), "install", "-e", "."], cwd=str(repo_root), check=True)
+    subprocess.run([str(python_exe), "-m", "pip", "install", "-e", "."], cwd=str(repo_root), check=True)
     
     # 3. Locate and configure targets
     if sys.platform == "win32":
