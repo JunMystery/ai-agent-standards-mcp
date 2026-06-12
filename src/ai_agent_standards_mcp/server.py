@@ -168,7 +168,7 @@ def register_handlers(mcp: Any, catalog: StandardsCatalog) -> None:
 
     @mcp.prompt()
     def init(project_name: str = "") -> str:
-        """Khởi tạo dự án mới."""
+        """Initialize a new project."""
         content = catalog.read_entry("workflow-init")
         if project_name:
             return f"{content}\n\nProject Name: {project_name}"
@@ -176,19 +176,19 @@ def register_handlers(mcp: Any, catalog: StandardsCatalog) -> None:
 
     @mcp.prompt()
     def plan(task: str) -> str:
-        """Lên kế hoạch thiết kế tính năng."""
+        """Plan feature designs."""
         content = catalog.read_entry("workflow-plan")
         return f"{content}\n\nTask to plan: {task}"
 
     @mcp.prompt()
     def design(feature: str) -> str:
-        """Thiết kế kỹ thuật cho tính năng."""
+        """Technical design for features."""
         content = catalog.read_entry("workflow-design")
         return f"{content}\n\nFeature to design: {feature}"
 
     @mcp.prompt()
     def visualize(ui_description: str = "") -> str:
-        """Thiết kế giao diện UI/UX."""
+        """UI/UX interface design."""
         content = catalog.read_entry("workflow-visualize")
         if ui_description:
             return f"{content}\n\nUI Description: {ui_description}"
@@ -196,19 +196,19 @@ def register_handlers(mcp: Any, catalog: StandardsCatalog) -> None:
 
     @mcp.prompt()
     def code(task: str) -> str:
-        """Lập trình tính năng chất lượng cao."""
+        """Implement high-quality features."""
         content = catalog.read_entry("workflow-code")
         return f"{content}\n\nTask to implement:\n{task}"
 
     @mcp.prompt()
     def run(environment: str = "local") -> str:
-        """Khởi chạy ứng dụng."""
+        """Run/launch the application."""
         content = catalog.read_entry("workflow-run")
         return f"{content}\n\nTarget environment: {environment}"
 
     @mcp.prompt()
     def test(test_target: str = "") -> str:
-        """Chạy test cases và tự động viết test."""
+        """Run test cases and write tests automatically."""
         content = catalog.read_entry("workflow-test")
         if test_target:
             return f"{content}\n\nTest target: {test_target}"
@@ -216,31 +216,31 @@ def register_handlers(mcp: Any, catalog: StandardsCatalog) -> None:
 
     @mcp.prompt()
     def deploy(target: str = "production") -> str:
-        """Triển khai ứng dụng lên production/staging."""
+        """Deploy the application to production/staging."""
         content = catalog.read_entry("workflow-deploy")
         return f"{content}\n\nDeploy target: {target}"
 
     @mcp.prompt()
     def debug(error_message: str) -> str:
-        """Phân tích và sửa lỗi tự động."""
+        """Analyze and fix bugs automatically."""
         content = catalog.read_entry("workflow-debug")
         return f"{content}\n\nError/Bug Description:\n{error_message}"
 
     @mcp.prompt()
     def refactor(target_file: str) -> str:
-        """Tối ưu hóa và dọn dẹp code an toàn."""
+        """Optimize and refactor code safely."""
         content = catalog.read_entry("workflow-refactor")
         return f"{content}\n\nFile or module to refactor: {target_file}"
 
     @mcp.prompt()
     def audit(scope: str = "security") -> str:
-        """Kiểm tra sức khỏe dự án."""
+        """Audit project health."""
         content = catalog.read_entry("workflow-audit")
         return f"{content}\n\nAudit scope: {scope}"
 
     @mcp.prompt()
     def rollback(revision: str = "") -> str:
-        """Khôi phục về trạng thái cũ an toàn."""
+        """Safely rollback to a previous state."""
         content = catalog.read_entry("workflow-rollback")
         if revision:
             return f"{content}\n\nRollback revision/commit: {revision}"
@@ -248,7 +248,7 @@ def register_handlers(mcp: Any, catalog: StandardsCatalog) -> None:
 
     @mcp.prompt()
     def recap(session_id: str = "") -> str:
-        """Khôi phục ngữ cảnh làm việc từ session cũ."""
+        """Restore working context from a previous session."""
         content = catalog.read_entry("workflow-recap")
         if session_id:
             return f"{content}\n\nSession ID: {session_id}"

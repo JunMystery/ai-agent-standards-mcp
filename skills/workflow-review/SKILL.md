@@ -4,227 +4,227 @@ description: Review and hand over project context
 
 # WORKFLOW: /review - The Project Scanner
 
-Bạn là **Project Analyst**. Nhiệm vụ: Quét toàn bộ dự án và tạo báo cáo dễ hiểu để:
-1. Bạn (hoặc người khác) có thể tiếp nhận dự án nhanh chóng
-2. Đánh giá "sức khỏe" code hiện tại
-3. Lên kế hoạch nâng cấp
+You are a **Project Analyst**. Mission: Scan the entire project and create an easy-to-understand report to:
+1. You (or someone else) can take over the project quickly
+2. Assess the "health" of the current code
+3. Plan for upgrades
 
 ---
 
 ## 🎯 Non-Tech Mode (v4.0)
 
-**Đọc preferences.json để điều chỉnh ngôn ngữ:**
+**Read preferences.json to adjust language:**
 
 ```
 if technical_level == "newbie":
-    → Ẩn chi tiết kỹ thuật (dependencies, architecture)
-    → Chỉ hiển thị: "App làm gì", "Cách chạy", "Cách sửa đơn giản"
-    → Dùng ngôn ngữ đời thường
+    → Hide technical details (dependencies, architecture)
+    → Only show: "What the app does", "How to run", "Simple fixes"
+    → Use casual/everyday language
 ```
 
-### Báo cáo cho newbie:
+### Report for newbie:
 ```
-❌ ĐỪNG: "Architecture: Next.js App Router với Server Components..."
-✅ NÊN:  "📱 App quản lý chi tiêu - Giúp theo dõi tiền ra vào hàng ngày"
-```
-
----
-
-## Giai đoạn 1: Hỏi Mục Đích
-
-```
-"🔍 Anh muốn review dự án để làm gì?
-
-1️⃣ **Tự xem lại** - Quên mất mình đang làm gì
-2️⃣ **Bàn giao** - Chuyển cho người khác tiếp nhận  
-3️⃣ **Đánh giá** - Xem code có vấn đề gì không
-4️⃣ **Lên kế hoạch nâng cấp** - Chuẩn bị thêm tính năng mới
-
-(Hoặc nói trực tiếp mục đích của anh)"
+❌ DON'T: "Architecture: Next.js App Router with Server Components..."
+✅ DO:  "📱 Expense tracker app - Helps track daily cash flow"
 ```
 
 ---
 
-## Giai đoạn 2: Quét Dự Án Tự Động
+## Phase 1: Ask for Purpose
 
-AI tự động thực hiện:
-
-### 2.1. Đọc cấu trúc thư mục
-```bash
-# Liệt kê các file/folder chính
-# Đếm số file code
-# Phát hiện framework đang dùng
 ```
+"🔍 What is the purpose of reviewing the project?
 
-### 2.2. Đọc package.json (nếu có)
-```bash
-# Xác định tech stack
-# Version các thư viện
-# Scripts có sẵn
-```
+1️⃣ **Self-review** - Forgot what I was doing
+2️⃣ **Handover** - Transfer it to someone else to take over  
+3️⃣ **Evaluation** - See if there are any issues with the code
+4️⃣ **Plan upgrades** - Prepare to add new features
 
-### 2.3. Đọc README, docs/ (nếu có)
-```bash
-# Mô tả dự án
-# Hướng dẫn cài đặt
-```
-
-### 2.4. Đọc .brain/ (nếu có)
-```bash
-# Session gần nhất
-# Context đang làm việc
+(Or tell me your purpose directly)"
 ```
 
 ---
 
-## Giai đoạn 3: Tạo Báo Cáo
+## Phase 2: Automatic Project Scan
 
-### 3.1. Báo cáo cho mục đích "Tự xem lại" hoặc "Bàn giao"
+AI automatically executes:
+
+### 2.1. Read directory structure
+```bash
+# List main files/folders
+# Count code files
+# Detect framework being used
+```
+
+### 2.2. Read package.json (if available)
+```bash
+# Determine tech stack
+# Library versions
+# Available scripts
+```
+
+### 2.3. Read README, docs/ (if available)
+```bash
+# Project description
+# Installation guide
+```
+
+### 2.4. Read .brain/ (if available)
+```bash
+# Most recent session
+# Working context
+```
+
+---
+
+## Phase 3: Create Report
+
+### 3.1. Report for "Self-review" or "Handover" purpose
 
 ```markdown
-# 📊 BÁO CÁO DỰ ÁN: [Tên]
+# 📊 PROJECT REPORT: [Name]
 
-## 🎯 App này làm gì?
-[Mô tả 2-3 câu, ngôn ngữ đời thường]
+## 🎯 What does this app do?
+[2-3 sentences description in everyday language]
 
-## 📁 Cấu trúc chính
+## 📁 Main structure
 ```
-[Folder tree đơn giản, chỉ các folder quan trọng]
+[Simple folder tree, only important folders]
 ```
 
-## 🛠️ Công nghệ sử dụng
-| Thành phần | Công nghệ |
+## 🛠️ Tech Stack Used
+| Component | Technology |
 |------------|-----------|
 | Framework | [Next.js 14] |
-| Giao diện | [TailwindCSS] |
+| Interface | [TailwindCSS] |
 | Database | [Supabase] |
 
-## 🚀 Cách chạy
+## 🚀 How to run
 ```bash
 npm install
 npm run dev
-# Mở http://localhost:3000
+# Open http://localhost:3000
 ```
 
-## 📍 Đang làm dở gì?
-[Đọc từ session.json nếu có]
-- Tính năng: [...]
-- Task tiếp theo: [...]
+## 📍 What is currently work-in-progress?
+[Read from session.json if available]
+- Feature: [...]
+- Next task: [...]
 
-## 📝 Các file quan trọng cần biết
-| File | Chức năng |
+## 📝 Important files to know
+| File | Function |
 |------|-----------|
-| `app/page.tsx` | Trang chủ |
-| `components/...` | Các component UI |
-| `lib/...` | Logic xử lý |
+| `app/page.tsx` | Homepage |
+| `components/...` | UI components |
+| `lib/...` | Processing/helper logic |
 
-## ⚠️ Lưu ý khi tiếp nhận
-- [Điều 1]
-- [Điều 2]
+## ⚠️ Handover Notes
+- [Note 1]
+- [Note 2]
 ```
 
-### 3.2. Báo cáo cho mục đích "Đánh giá"
+### 3.2. Report for "Evaluation" purpose
 
 ```markdown
-# 🏥 ĐÁNH GIÁ SỨC KHỎE CODE: [Tên]
+# 🏥 CODE HEALTH ASSESSMENT: [Name]
 
-## 📊 Tổng quan
-| Chỉ số | Kết quả | Đánh giá |
+## 📊 Overview
+| Metric | Result | Assessment |
 |--------|---------|----------|
-| Build | ✅ Thành công / ❌ Lỗi | [Tốt/Cần sửa] |
-| Lint | X warnings | [Tốt/Cần cải thiện] |
-| TypeScript | X errors | [Tốt/Cần sửa] |
+| Build | ✅ Success / ❌ Error | [Good/Needs fixing] |
+| Lint | X warnings | [Good/Needs improvement] |
+| TypeScript | X errors | [Good/Needs fixing] |
 
-## ✅ Điểm tốt
-- [Điều 1]
-- [Điều 2]
+## ✅ Good points
+- [Point 1]
+- [Point 2]
 
-## ⚠️ Cần cải thiện
-| Vấn đề | Ưu tiên | Gợi ý |
+## ⚠️ Needs Improvement
+| Issue | Priority | Suggestion |
 |--------|---------|-------|
-| [Vấn đề 1] | 🔴 Cao | [Cách sửa] |
-| [Vấn đề 2] | 🟡 Trung bình | [Cách sửa] |
-| [Vấn đề 3] | 🟢 Thấp | [Cách sửa] |
+| [Issue 1] | 🔴 High | [How to fix] |
+| [Issue 2] | 🟡 Medium | [How to fix] |
+| [Issue 3] | 🟢 Low | [How to fix] |
 
-## 🔧 Gợi ý cải thiện
-1. [Gợi ý 1]
-2. [Gợi ý 2]
+## 🔧 Improvement Suggestions
+1. [Suggestion 1]
+2. [Suggestion 2]
 ```
 
-### 3.3. Báo cáo cho mục đích "Lên kế hoạch nâng cấp"
+### 3.3. Report for "Upgrade Planning" purpose
 
 ```markdown
-# 🚀 KẾ HOẠCH NÂNG CẤP: [Tên]
+# 🚀 UPGRADE PLAN: [Name]
 
-## 📍 Trạng thái hiện tại
-[Mô tả ngắn]
+## 📍 Current Status
+[Short description]
 
-## ⬆️ Có thể nâng cấp
+## ⬆️ Potential Upgrades
 
-### Dependencies cần update
-| Package | Hiện tại | Mới nhất | Rủi ro |
+### Dependencies that need update
+| Package | Current | Latest | Risk |
 |---------|----------|----------|--------|
-| next | 14.0 | 14.2 | 🟢 An toàn |
-| [pkg] | [v1] | [v2] | 🟡 Cần test |
+| next | 14.0 | 14.2 | 🟢 Safe |
+| [pkg] | [v1] | [v2] | 🟡 Needs testing |
 
-### Tính năng có thể thêm
-Dựa trên kiến trúc hiện tại, có thể dễ dàng thêm:
-1. [Tính năng 1]
-2. [Tính năng 2]
+### Features that can be added
+Based on the current architecture, we can easily add:
+1. [Feature 1]
+2. [Feature 2]
 
-### Refactor nên làm
-1. [Việc 1] - Ưu tiên: 🔴 Cao
-2. [Việc 2] - Ưu tiên: 🟡 Trung bình
+### Refactorings to perform
+1. [Task 1] - Priority: 🔴 High
+2. [Task 2] - Priority: 🟡 Medium
 
-## ⚠️ Rủi ro khi nâng cấp
-- [Rủi ro 1]
-- [Rủi ro 2]
+## ⚠️ Upgrade Risks
+- [Risk 1]
+- [Risk 2]
 ```
 
 ---
 
-## Giai đoạn 4: Lưu Báo Cáo
+## Phase 4: Save Report
 
 ```
-Tạo file: docs/PROJECT_REVIEW_[date].md
+Create file: docs/PROJECT_REVIEW_[date].md
 
-"📋 Đã tạo báo cáo tại: docs/PROJECT_REVIEW_260130.md
+"📋 Created report at: docs/PROJECT_REVIEW_260130.md
 
-Anh muốn làm gì tiếp?
-1️⃣ Xem chi tiết phần nào đó
-2️⃣ Bắt đầu sửa vấn đề được nêu
-3️⃣ Lên plan nâng cấp với /plan
-4️⃣ Lưu lại để sau với /save-brain"
+What would you like to do next?
+1️⃣ View details of a specific section
+2️⃣ Start fixing the identified issues
+3️⃣ Plan upgrades with /plan
+4️⃣ Save for later with /save-brain"
 ```
 
 ---
 
-## ⚠️ NEXT STEPS (Menu số):
+## ⚠️ NEXT STEPS (Numbered Menu):
 ```
-1️⃣ Sửa vấn đề? /debug hoặc /refactor
-2️⃣ Thêm tính năng? /plan
-3️⃣ Bàn giao? /save-brain để đóng gói context
-4️⃣ Tiếp tục code? /code
+1️⃣ Fix issues? /debug or /refactor
+2️⃣ Add features? /plan
+3️⃣ Handover? /save-brain to package context
+4️⃣ Continue coding? /code
 ```
 
 ---
 
 ## 🛡️ Resilience Patterns
 
-### Khi không có package.json
+### When package.json is missing
 ```
-→ Báo user: "Đây không phải dự án Node.js. Em quét theo cấu trúc folder."
-→ Liệt kê file types tìm thấy (.py, .java, .html...)
-```
-
-### Khi folder quá lớn
-```
-→ Chỉ quét 3 levels đầu
-→ Ưu tiên: src/, app/, components/, lib/, pages/
-→ Bỏ qua: node_modules/, .git/, dist/
+→ Inform user: "This is not a Node.js project. I will scan based on folder structure."
+→ List file types found (.py, .java, .html...)
 ```
 
-### Khi không có docs
+### When the folder is too large
 ```
-→ "Dự án chưa có documentation. Em tự tạo overview dựa trên code."
+→ Only scan the first 3 levels
+→ Priority: src/, app/, components/, lib/, pages/
+→ Ignore: node_modules/, .git/, dist/
+```
+
+### When there are no docs
+```
+→ "The project has no documentation. I will generate an overview based on the code."
 ```

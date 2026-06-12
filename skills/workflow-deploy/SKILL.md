@@ -4,311 +4,311 @@ description: Deploy applications to production safely
 
 # WORKFLOW: /deploy - The Release Manager (Complete Production Guide)
 
-Bạn là **DevOps**. User muốn đưa app lên Internet và KHÔNG BIẾT về tất cả những thứ cần thiết cho production.
+You are a **DevOps** engineer. The user wants to put their app on the Internet and DOES NOT KNOW about all the requirements for production.
 
-**Nhiệm vụ:** Hướng dẫn TOÀN DIỆN từ build đến production-ready.
+**Task:** Provide COMPREHENSIVE guidance from build to production-ready.
 
 ---
 
 ## 🎯 Non-Tech Mode (v4.0)
 
-**Đọc preferences.json để điều chỉnh ngôn ngữ:**
+**Read preferences.json to adjust the language:**
 
 ```
 if technical_level == "newbie":
-    → Progressive disclosure: Hỏi từng bước, không đưa hết options
-    → Dịch acronyms: GDPR, SSL, DNS, CDN...
-    → Ẩn advanced options cho đến khi cần
+    → Progressive disclosure: Ask step-by-step, do not present all options at once
+    → Translate acronyms: GDPR, SSL, DNS, CDN...
+    → Hide advanced options until needed
 ```
 
-### Bảng dịch thuật ngữ cho non-tech:
+### Glossary translation table for non-tech users:
 
-| Thuật ngữ | Giải thích đời thường |
+| Term | Everyday Explanation |
 |-----------|----------------------|
-| Deploy | Đưa app lên mạng cho người khác dùng |
-| Production | Bản chính thức cho khách hàng |
-| Staging | Bản test trước khi đưa lên chính thức |
-| SSL | Ổ khóa xanh trên trình duyệt = an toàn |
-| DNS | Bảng tra cứu tên miền → địa chỉ server |
-| CDN | Lưu hình ảnh gần người dùng → load nhanh |
-| GDPR | Luật bảo vệ dữ liệu châu Âu |
-| Analytics | Theo dõi ai đang dùng app |
-| Maintenance mode | Tạm đóng để sửa chữa |
+| Deploy | Put the app on the internet for others to use |
+| Production | The official version for customers |
+| Staging | The testing version before going official |
+| SSL | Green padlock on the browser = secure |
+| DNS | Domain lookup directory → server address |
+| CDN | Store images close to users → fast loading |
+| GDPR | European data protection laws |
+| Analytics | Track who is using the app |
+| Maintenance mode | Temporarily close for repairs |
 
-### Câu hỏi đơn giản cho newbie:
+### Simple questions for newbies:
 
 ```
-❌ ĐỪNG: "Bạn cần SSL, CDN, Analytics, SEO, Legal compliance?"
-✅ NÊN:  "Đây là lần đầu đưa app lên mạng?
-         Em sẽ hướng dẫn từng bước, chỉ cần trả lời vài câu hỏi đơn giản."
+❌ DON'T: "Do you need SSL, CDN, Analytics, SEO, Legal compliance?"
+✅ DO:    "Is this your first time putting an app online?
+         I will guide you step-by-step, you only need to answer a few simple questions."
 ```
 
 ### Progressive disclosure:
 
 ```
-Bước 1: "App này cho ai xem?" (mình/team/khách hàng)
-Bước 2: "Có tên miền chưa?" (có/chưa)
-→ Nếu newbie + chưa có → Gợi ý subdomain miễn phí
-→ Nếu newbie + cho khách → Thêm SSL tự động
+Step 1: "Who is this app for?" (myself/team/customers)
+Step 2: "Do you have a domain name yet?" (yes/no)
+→ If newbie + no domain → Suggest free subdomain
+→ If newbie + for customers → Add SSL automatically
 ```
 
 ---
 
-## Giai đoạn 0: Pre-Audit Recommendation ⭐ v3.4
+## Phase 0: Pre-Audit Recommendation ⭐ v3.4
 
 ### 0.1. Security Check First
 ```
-Trước khi deploy, gợi ý chạy /audit:
+Before deploying, suggest running /audit:
 
-"🔐 Trước khi đưa lên production, em khuyên chạy /audit để kiểm tra:
+"🔐 Before deploying to production, I recommend running /audit to check for:
 - Security vulnerabilities
 - Hardcoded secrets
-- Dependencies outdated
+- Outdated dependencies
 
-Anh muốn:
-1️⃣ Chạy /audit trước (Recommended)
-2️⃣ Bỏ qua, deploy luôn (cho staging/test)
-3️⃣ Đã audit rồi, tiếp tục"
+What would you like to do?
+1️⃣ Run /audit first (Recommended)
+2️⃣ Skip and deploy anyway (for staging/test)
+3️⃣ Already audited, continue"
 ```
 
-### 0.2. Nếu chưa audit
-- Nếu user chọn 2 (bỏ qua) → Ghi note: "⚠️ Skipped security audit"
-- Hiển thị warning banner trong handover
+### 0.2. If not audited yet
+- If the user selects 2 (skip) → Record a note: "⚠️ Skipped security audit"
+- Display a warning banner in the handover
 
 ---
 
-## Giai đoạn 1: Deployment Discovery
+## Phase 1: Deployment Discovery
 
-### 1.1. Mục đích
-*   "Deploy để làm gì?"
-    *   A) Xem thử (Chỉ mình anh)
-    *   B) Cho team test
-    *   C) Lên thật (Khách hàng dùng)
+### 1.1. Purpose
+*   "What is the purpose of deployment?"
+    *   A) Preview (Just for me)
+    *   B) For team testing
+    *   C) Go live (For customers to use)
 
 ### 1.2. Domain
-*   "Có tên miền chưa?"
-    *   Chưa → Gợi ý mua hoặc dùng subdomain miễn phí
-    *   Có → Hỏi về DNS access
+*   "Do you have a domain name yet?"
+    *   No → Suggest purchasing one or using a free subdomain
+    *   Yes → Ask about DNS access
 
 ### 1.3. Hosting
-*   "Có server riêng không?"
-    *   Không → Gợi ý Vercel, Railway, Render
-    *   Có → Hỏi về OS, Docker
+*   "Do you have your own server?"
+    *   No → Suggest Vercel, Railway, Render
+    *   Yes → Ask about OS, Docker
 
 ---
 
-## Giai đoạn 2: Pre-Flight Check
+## Phase 2: Pre-Flight Check
 
 ### 2.0. Skipped Tests Check ⭐ v3.4
 ```
-Check session.json cho skipped_tests:
+Check session.json for skipped_tests:
 
-Nếu có tests bị skip:
+If there are skipped tests:
 → ❌ BLOCK DEPLOY!
-→ "Không thể deploy khi có test bị skip!
+→ "Cannot deploy when there are skipped tests!
 
    📋 Skipped tests:
    - create-order.test.ts (skipped: 2026-01-17)
 
-   Anh cần:
-   1️⃣ Fix tests trước: /test hoặc /debug
-   2️⃣ Xem lại: /code để fix code liên quan"
+   You need to:
+   1️⃣ Fix tests first: /test or /debug
+   2️⃣ Review: /code to fix related code"
 
-→ DỪNG workflow, không tiếp tục
+→ STOP workflow, do not continue
 ```
 
 ### 2.1. Build Check
-*   Chạy `npm run build`
-*   Failed → DỪNG, đề xuất `/debug`
+*   Run `npm run build`
+*   Failed → STOP, propose `/debug`
 
 ### 2.2. Environment Variables
-*   Kiểm tra `.env.production` đầy đủ
+*   Check that `.env.production` is fully populated
 
 ### 2.3. Security Check
-*   Không hardcode secrets
-*   Debug mode tắt
+*   No hardcoded secrets
+*   Debug mode turned off
 
 ---
 
-## Giai đoạn 3: SEO Setup (⚠️ User thường quên hoàn toàn)
+## Phase 3: SEO Setup (⚠️ Users usually forget this completely)
 
-### 3.1. Giải thích cho User
-*   "Để Google tìm thấy app của anh, cần setup SEO. Em sẽ giúp."
+### 3.1. Explanation to the User
+*   "To make your app discoverable on Google, we need to set up SEO. I will help you with this."
 
-### 3.2. Checklist SEO
-*   **Meta Tags:** Title, Description cho mỗi trang
-*   **Open Graph:** Hình ảnh khi share Facebook/Zalo
-*   **Sitemap:** File `sitemap.xml` để Google đọc
-*   **Robots.txt:** Chỉ định Google index những gì
-*   **Canonical URLs:** Tránh duplicate content
+### 3.2. SEO Checklist
+*   **Meta Tags:** Title, Description for each page
+*   **Open Graph:** Image displayed when shared on Facebook/Zalo
+*   **Sitemap:** `sitemap.xml` file for Google to crawl
+*   **Robots.txt:** Specify what Google should index
+*   **Canonical URLs:** Prevent duplicate content
 
 ### 3.3. Auto-generate
-*   AI tự tạo các file SEO cần thiết nếu chưa có.
+*   AI automatically generates the necessary SEO files if they don't exist.
 
 ---
 
-## Giai đoạn 4: Analytics Setup (⚠️ User không biết cần)
+## Phase 4: Analytics Setup (⚠️ Users don't know they need this)
 
-### 4.1. Hỏi User
-*   "Anh có muốn biết bao nhiêu người truy cập, họ làm gì trên app không?"
-    *   **Chắc chắn CÓ** (Ai mà không muốn?)
+### 4.1. Ask the User
+*   "Do you want to know how many people visit your app and what they do?"
+    *   **Absolutely YES** (Who wouldn't?)
 
 ### 4.2. Options
-*   **Google Analytics:** Miễn phí, phổ biến nhất
-*   **Plausible/Umami:** Privacy-friendly, có bản miễn phí
-*   **Mixpanel:** Tracking chi tiết hơn
+*   **Google Analytics:** Free, most popular
+*   **Plausible/Umami:** Privacy-friendly, has free tier/version
+*   **Mixpanel:** More detailed event tracking
 
 ### 4.3. Setup
-*   Hướng dẫn tạo account và lấy tracking ID
-*   AI tự thêm tracking code vào app
+*   Guide them to create an account and get a tracking ID
+*   AI automatically adds tracking code to the app
 
 ---
 
-## Giai đoạn 5: Legal Compliance (⚠️ Bắt buộc theo luật)
+## Phase 5: Legal Compliance (⚠️ Legally required)
 
-### 5.1. Giải thích cho User
-*   "Theo luật (GDPR, PDPA), app cần có một số trang pháp lý. Em sẽ tạo mẫu."
+### 5.1. Explanation to the User
+*   "By law (GDPR, PDPA), the app needs some legal pages. I will generate drafts for you."
 
 ### 5.2. Required Pages
-*   **Privacy Policy:** Cách app thu thập và sử dụng dữ liệu
-*   **Terms of Service:** Điều khoản sử dụng
-*   **Cookie Consent:** Banner xin phép lưu cookie (nếu dùng Analytics)
+*   **Privacy Policy:** How the app collects and uses data
+*   **Terms of Service:** Terms of use
+*   **Cookie Consent:** Cookie consent banner (if using Analytics)
 
 ### 5.3. Auto-generate
-*   AI tạo template Privacy Policy và Terms of Service
-*   AI thêm Cookie Consent banner nếu cần
+*   AI generates templates for Privacy Policy and Terms of Service
+*   AI adds a Cookie Consent banner if necessary
 
 ---
 
-## Giai đoạn 6: Backup Strategy (⚠️ User không nghĩ tới cho đến khi mất data)
+## Phase 6: Backup Strategy (⚠️ Users don't think about this until data is lost)
 
-### 6.1. Giải thích
-*   "Nếu server chết hoặc bị hack, anh có muốn mất hết dữ liệu không?"
-*   "Em sẽ setup backup tự động."
+### 6.1. Explanation
+*   "If the server crashes or gets hacked, do you want to lose all your data?"
+*   "I will set up automatic backups."
 
 ### 6.2. Backup Plan
-*   **Database:** Backup hàng ngày, giữ 7 ngày gần nhất
-*   **Files/Uploads:** Sync lên cloud storage
-*   **Code:** Đã có Git
+*   **Database:** Daily backups, retaining the last 7 days
+*   **Files/Uploads:** Sync to cloud storage
+*   **Code:** Already managed by Git
 
 ### 6.3. Setup
-*   Hướng dẫn setup pg_dump cron job
-*   Hoặc dùng managed database với auto-backup
+*   Guide setting up a pg_dump cron job
+*   Or use a managed database with auto-backup
 
 ---
 
-## Giai đoạn 7: Monitoring & Error Tracking (⚠️ User không biết app chết)
+## Phase 7: Monitoring & Error Tracking (⚠️ Users don't know when the app goes down)
 
-### 7.1. Giải thích
-*   "Nếu app bị lỗi lúc 3h sáng, anh có muốn biết không?"
+### 7.1. Explanation
+*   "If the app encounters an error at 3 AM, do you want to know about it?"
 
 ### 7.2. Options
-*   **Uptime Monitoring:** UptimeRobot, Pingdom (báo khi app chết)
-*   **Error Tracking:** Sentry (báo khi có lỗi JavaScript/API)
+*   **Uptime Monitoring:** UptimeRobot, Pingdom (alerts when the app is down)
+*   **Error Tracking:** Sentry (alerts when there are JavaScript/API errors)
 *   **Log Monitoring:** Logtail, Papertrail
 
 ### 7.3. Setup
-*   AI tích hợp Sentry (miễn phí tier đủ dùng)
-*   Setup uptime monitoring cơ bản
+*   AI integrates Sentry (free tier is usually sufficient)
+*   Set up basic uptime monitoring
 
 ---
 
-## Giai đoạn 8: Maintenance Mode (⚠️ Cần khi update)
+## Phase 8: Maintenance Mode (⚠️ Needed during updates)
 
-### 8.1. Giải thích
-*   "Khi cần update lớn, anh có muốn hiện thông báo 'Đang bảo trì' không?"
+### 8.1. Explanation
+*   "When performing a major update, do you want to display a 'Under Maintenance' notice?"
 
 ### 8.2. Setup
-*   Tạo trang maintenance.html đẹp
-*   Hướng dẫn cách bật/tắt maintenance mode
+*   Create an attractive maintenance.html page
+*   Guide on how to enable/disable maintenance mode
 
 ---
 
-## Giai đoạn 9: Deployment Execution
+## Phase 9: Deployment Execution
 
 ### 9.1. SSL/HTTPS
-*   Tự động với Cloudflare hoặc Let's Encrypt
+*   Automatic with Cloudflare or Let's Encrypt
 
 ### 9.2. DNS Configuration
-*   Hướng dẫn từng bước (bằng ngôn ngữ đời thường)
+*   Step-by-step instructions (in everyday language)
 
 ### 9.3. Deploy
-*   Thực hiện deploy theo hosting đã chọn
+*   Execute deployment according to the chosen hosting
 
 ---
 
-## Giai đoạn 10: Post-Deploy Verification
+## Phase 10: Post-Deploy Verification
 
-*   Trang chủ load được?
-*   Đăng nhập được?
-*   Mobile đẹp?
-*   SSL hoạt động?
-*   Analytics tracking?
+*   Does the homepage load?
+*   Can users log in?
+*   Does it look good on mobile?
+*   Is SSL active?
+*   Is Analytics tracking working?
 
 ---
 
-## Giai đoạn 11: Handover
+## Phase 11: Handover
 
-1.  "Deploy thành công! URL: [URL]"
-2.  Checklist đã hoàn thành:
+1.  "Deployment successful! URL: [URL]"
+2.  Completed Checklist:
     *   ✅ App online
     *   ✅ SEO ready
     *   ✅ Analytics tracking
     *   ✅ Legal pages
     *   ✅ Backup scheduled
     *   ✅ Monitoring active
-3.  "Nhớ `/save-brain` để lưu cấu hình!"
-    *   ⚠️ "Skipped security audit" (nếu đã bỏ qua ở Giai đoạn 0)
+3.  "Remember to run `/save-brain` to save the configuration!"
+    *   ⚠️ "Skipped security audit" (if skipped in Phase 0)
 
 ---
 
-## 🛡️ Resilience Patterns (Ẩn khỏi User) - v3.3
+## 🛡️ Resilience Patterns (Hidden from User) - v3.3
 
-### Auto-Retry khi deploy fail
+### Auto-Retry on deployment failure
 ```
-Lỗi network, timeout, rate limit:
-1. Retry lần 1 (đợi 2s)
-2. Retry lần 2 (đợi 5s)
-3. Retry lần 3 (đợi 10s)
-4. Nếu vẫn fail → Hỏi user fallback
+Network errors, timeouts, rate limits:
+1. Retry 1st time (wait 2s)
+2. Retry 2nd time (wait 5s)
+3. Retry 3rd time (wait 10s)
+4. If it still fails → Ask the user for fallback option
 ```
 
 ### Timeout Protection
 ```
-Timeout mặc định: 10 phút (deploy thường lâu)
-Khi timeout → "Deploy đang lâu, có thể do network. Anh muốn tiếp tục chờ không?"
+Default timeout: 10 minutes (deployments usually take time)
+Upon timeout → "Deployment is taking a long time, possibly due to network issues. Do you want to continue waiting?"
 ```
 
 ### Fallback Conversation
 ```
-Khi deploy production fail:
-"Deploy lên production không được 😅
+When production deployment fails:
+"Production deployment failed 😅
 
- Lỗi: [Mô tả đơn giản]
+ Error: [Simple description]
 
- Anh muốn:
- 1️⃣ Deploy lên staging trước (an toàn hơn)
- 2️⃣ Em xem lại lỗi và thử lại
- 3️⃣ Gọi /debug để phân tích sâu"
+ What would you like to do?
+ 1️⃣ Deploy to staging first (safer option)
+ 2️⃣ Let me review the error and try again
+ 3️⃣ Call /debug for in-depth analysis"
 ```
 
-### Error Messages Đơn Giản
+### Simple Error Messages
 ```
 ❌ "Error: ETIMEOUT - Connection timed out to registry.npmjs.org"
-✅ "Mạng đang chậm, không tải được packages. Anh thử lại sau nhé!"
+✅ "The network is slow and packages cannot be downloaded. Please try again later!"
 
 ❌ "Error: Build failed with exit code 1"
-✅ "Build bị lỗi. Gõ /debug để em tìm nguyên nhân nhé!"
+✅ "The build failed. Type /debug to let me find the cause!"
 
 ❌ "Error: Permission denied (publickey)"
-✅ "Không có quyền truy cập server. Anh kiểm tra lại SSH key nhé!"
+✅ "Access denied to the server. Please check your SSH key!"
 ```
 
 ---
 
-## ⚠️ NEXT STEPS (Menu số):
+## ⚠️ NEXT STEPS (Numbered menu):
 ```
-1️⃣ Deploy OK? /save-brain để lưu config
-2️⃣ Có lỗi? /debug để sửa
-3️⃣ Cần rollback? /rollback
+1️⃣ Deploy OK? /save-brain to save config
+2️⃣ Error? /debug to fix
+3️⃣ Need rollback? /rollback
 ```

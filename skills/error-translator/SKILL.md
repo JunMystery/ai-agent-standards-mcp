@@ -9,7 +9,7 @@ version: 1.0.0
 
 # AI Agent Standards Error Translator
 
-Dịch lỗi kỹ thuật sang ngôn ngữ đời thường cho non-tech users.
+Translate technical errors into plain language for non-tech users.
 
 ## Trigger Conditions
 
@@ -35,8 +35,8 @@ Match error against database, return human message + action.
 ### Step 3: Display
 
 ```
-❌ Lỗi: [human message]
-💡 Gợi ý: [action]
+❌ Error: [human message]
+💡 Suggestion: [action]
 ```
 
 ## Error Translation Database
@@ -45,90 +45,90 @@ Match error against database, return human message + action.
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `ECONNREFUSED` | Database chưa chạy | Khởi động PostgreSQL/MySQL |
-| `ETIMEDOUT` | Database phản hồi chậm quá | Kiểm tra kết nối mạng |
-| `ER_ACCESS_DENIED` | Sai mật khẩu database | Kiểm tra file .env |
-| `relation .* does not exist` | Bảng chưa tồn tại | Chạy migration: `/run migrate` |
-| `duplicate key` | Dữ liệu bị trùng | Kiểm tra unique constraint |
+| `ECONNREFUSED` | Database is not running | Start PostgreSQL/MySQL |
+| `ETIMEDOUT` | Database response is too slow | Check network connection |
+| `ER_ACCESS_DENIED` | Incorrect database password | Check .env file |
+| `relation .* does not exist` | Table does not exist | Run migrations: `/run migrate` |
+| `duplicate key` | Duplicate data | Check unique constraints |
 
 ### JavaScript/TypeScript Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `TypeError: Cannot read` | Đang đọc biến chưa có giá trị | Kiểm tra null/undefined |
-| `ReferenceError` | Dùng biến chưa khai báo | Kiểm tra tên biến |
-| `SyntaxError` | Code viết sai cú pháp | Kiểm tra dấu ngoặc, chấm phẩy |
-| `Maximum call stack` | Vòng lặp vô hạn | Kiểm tra điều kiện dừng |
-| `Cannot find module` | Thiếu package | Chạy `npm install` |
+| `TypeError: Cannot read` | Attempting to read an unassigned variable | Check for null/undefined |
+| `ReferenceError` | Using an undeclared variable | Check variable name |
+| `SyntaxError` | Code syntax error | Check parentheses, semicolons |
+| `Maximum call stack` | Infinite loop | Check termination condition |
+| `Cannot find module` | Missing package | Run `npm install` |
 
 ### Network Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `fetch failed` | Không kết nối được server | Kiểm tra URL và internet |
-| `CORS` | Website chặn request | Cấu hình CORS trên server |
-| `ERR_CERT` | Chứng chỉ SSL lỗi | Dùng HTTP thay HTTPS (dev only) |
-| `timeout` | Request quá lâu | Tăng timeout hoặc kiểm tra server |
-| `ENOTFOUND` | Domain không tồn tại | Kiểm tra lại URL |
+| `fetch failed` | Cannot connect to server | Check URL and internet |
+| `CORS` | Website blocked the request | Configure CORS on the server |
+| `ERR_CERT` | SSL certificate error | Use HTTP instead of HTTPS (dev only) |
+| `timeout` | Request took too long | Increase timeout or check server |
+| `ENOTFOUND` | Domain does not exist | Double check the URL |
 
 ### Package Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `npm ERR!` | Cài package bị lỗi | Xóa node_modules, cài lại |
-| `peer dep` | Phiên bản không tương thích | Cập nhật package.json |
-| `EACCES` | Không có quyền truy cập | Chạy với sudo hoặc sửa quyền |
-| `ENOSPC` | Hết dung lượng ổ đĩa | Dọn dẹp disk |
-| `gyp ERR!` | Lỗi build native module | Cài build tools |
+| `npm ERR!` | Package installation failed | Delete node_modules, reinstall |
+| `peer dep` | Incompatible version | Update package.json |
+| `EACCES` | Permission denied | Run with sudo or fix permissions |
+| `ENOSPC` | Out of disk space | Clean up disk |
+| `gyp ERR!` | Error building native module | Install build tools |
 
 ### Test Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `Expected .* but received` | Test thất bại - kết quả sai | Sửa code hoặc update test |
-| `Timeout` | Test chạy quá lâu | Tăng timeout hoặc optimize |
-| `before each hook` | Setup test bị lỗi | Kiểm tra beforeEach |
-| `snapshot` | UI thay đổi | Update snapshot nếu đúng |
-| `coverage` | Thiếu test coverage | Viết thêm test |
+| `Expected .* but received` | Test failed - incorrect result | Fix code or update test |
+| `Timeout` | Test took too long | Increase timeout or optimize |
+| `before each hook` | Test setup failed | Check beforeEach |
+| `snapshot` | UI changed | Update snapshot if correct |
+| `coverage` | Missing test coverage | Write more tests |
 
 ### Build Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `tsc.*error` | Lỗi TypeScript | Sửa type errors |
-| `ESLint` | Code không đúng style | Chạy lint fix |
-| `Build failed` | Build thất bại | Đọc log chi tiết |
-| `Out of memory` | Hết RAM | Tăng memory limit |
-| `FATAL ERROR` | Lỗi nghiêm trọng | Restart và thử lại |
+| `tsc.*error` | TypeScript error | Fix type errors |
+| `ESLint` | Code does not match style guidelines | Run lint fix |
+| `Build failed` | Build failed | Read detailed logs |
+| `Out of memory` | Out of RAM | Increase memory limit |
+| `FATAL ERROR` | Fatal error | Restart and try again |
 
 ### Git Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `conflict` | Code bị xung đột | Merge conflict manually |
-| `rejected` | Push bị từ chối | Pull trước khi push |
-| `detached HEAD` | Không ở branch nào | Checkout về branch |
-| `not a git repo` | Chưa init git | Chạy `git init` |
+| `conflict` | Code conflicts detected | Merge conflict manually |
+| `rejected` | Push rejected | Pull before pushing |
+| `detached HEAD` | Not on any branch | Checkout to a branch |
+| `not a git repo` | Git has not been initialized | Run `git init` |
 
 ### Deploy Errors
 
 | Pattern | Human Message | Action |
 |---------|---------------|--------|
-| `502 Bad Gateway` | Server không phản hồi | Restart server |
-| `503 Service` | Server quá tải | Scale up resources |
-| `permission denied` | Không có quyền deploy | Kiểm tra credentials |
-| `quota exceeded` | Hết quota | Nâng cấp plan |
+| `502 Bad Gateway` | Server did not respond | Restart server |
+| `503 Service` | Server overloaded | Scale up resources |
+| `permission denied` | No deploy permission | Check credentials |
+| `quota exceeded` | Quota exceeded | Upgrade plan |
 
 ## Output Format
 
 ```
 🔍 Translating error...
 
-❌ Lỗi: [human_message]
-   └─ Gốc: [original_error_snippet]
+❌ Error: [human_message]
+   └─ Original: [original_error_snippet]
 
-💡 Gợi ý: [action]
-   └─ Hoặc chạy: /debug để tìm hiểu thêm
+💡 Suggestion: [action]
+   └─ Or run: /debug to learn more
 
 ────────────────────────────────
 ```
@@ -137,8 +137,8 @@ Match error against database, return human message + action.
 
 If no pattern matches:
 ```
-❌ Lỗi: Có vấn đề xảy ra
-💡 Gợi ý: Chạy /debug để em phân tích chi tiết
+❌ Error: An issue occurred
+💡 Suggestion: Run /debug for a detailed analysis
 ```
 
 ## Performance

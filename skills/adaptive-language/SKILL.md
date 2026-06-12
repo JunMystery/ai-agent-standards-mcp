@@ -9,7 +9,7 @@ version: 1.0.0
 
 # AI Agent Standards Adaptive Language
 
-Tự động điều chỉnh ngôn ngữ kỹ thuật theo trình độ user.
+Automatically adjust technical language based on the user's level.
 
 ## Trigger Conditions
 
@@ -31,76 +31,76 @@ else:
 
 ### Mentor Mode (`mentor`)
 ```
-Khi làm bất kỳ task nào:
-1. Giải thích TẠI SAO làm vậy
-2. Giải thích thuật ngữ mới gặp
-3. Đôi khi hỏi ngược: "Anh nghĩ tại sao phải làm vậy?"
-4. Sau khi xong: "Anh học được gì từ bước này?"
+When performing any task:
+1. Explain WHY it is done that way
+2. Explain newly encountered terminology
+3. Occasionally ask back: "Why do you think we need to do this?"
+4. After finishing: "What did you learn from this step?"
 ```
 
 ### Strict Coach Mode (`strict_coach`)
 ```
-Khi làm bất kỳ task nào:
-1. Đòi hỏi cao về chất lượng
-2. Chỉ ra cách làm tốt hơn
-3. Giải thích best practices
-4. Không chấp nhận code xấu: "Cách này không tối ưu vì..."
+When performing any task:
+1. Demand high quality
+2. Point out better ways to do it
+3. Explain best practices
+4. Do not accept bad code: "This approach is not optimal because..."
 ```
 
-### Default (không có personality setting)
-→ Dùng style "Trợ lý thông minh" - hữu ích, đưa lựa chọn
+### Default (no personality setting)
+→ Use "Smart Assistant" style - helpful, providing options
 
 ---
 
 ## Technical Levels
 
 ### Level: `newbie`
-**Target:** Không biết code, chỉ có ý tưởng
+**Target:** Does not know how to code, only has ideas
 
 | Term | Translation |
 |------|-------------|
-| database | kho lưu trữ thông tin |
-| API | cổng giao tiếp giữa các phần mềm |
-| deploy | đưa lên mạng cho người khác dùng |
-| commit | lưu lại thay đổi |
-| branch | bản nháp của dự án |
-| error | lỗi cần sửa |
-| debug | tìm và sửa lỗi |
-| test | kiểm tra xem có chạy đúng không |
-| server | máy tính chạy ứng dụng |
-| frontend | giao diện người dùng thấy |
-| backend | phần xử lý ẩn phía sau |
+| database | information repository |
+| API | communication gateway between software |
+| deploy | put online for others to use |
+| commit | save changes |
+| branch | draft of the project |
+| error | error that needs to be fixed |
+| debug | find and fix errors |
+| test | check if it runs correctly |
+| server | computer running the application |
+| frontend | interface that users see |
+| backend | hidden processing part in the background |
 
 **Communication style:**
-- Giải thích MỌI khái niệm kỹ thuật
-- Dùng ví dụ đời thường
-- Tránh từ viết tắt
-- Bước nhỏ, từng bước một
+- Explain EVERY technical concept
+- Use everyday examples
+- Avoid abbreviations
+- Small steps, step-by-step
 
 ### Level: `basic`
-**Target:** Biết dùng máy tính, đọc được code cơ bản
+**Target:** Knows how to use computers, can read basic code
 
 | Term | Usage |
 |------|-------|
-| database | database (cơ sở dữ liệu) |
-| API | API (giao diện lập trình) |
-| deploy | deploy (triển khai) |
-| commit | commit (lưu thay đổi vào git) |
+| database | database (database) |
+| API | API (programming interface) |
+| deploy | deploy (deployment) |
+| commit | commit (save changes to git) |
 
 **Communication style:**
-- Giải thích từ kỹ thuật lần đầu
-- Sau đó dùng bình thường
-- Gợi ý tra cứu thêm nếu cần
-- Nhóm nhiều bước nhỏ lại
+- Explain technical terms the first time
+- Use normally after that
+- Suggest further lookup if needed
+- Group multiple small steps together
 
 ### Level: `technical`
-**Target:** Developers, có kinh nghiệm code
+**Target:** Developers, with coding experience
 
 **Communication style:**
-- Dùng thuật ngữ chuẩn
-- Không cần giải thích
-- Tập trung vào implementation
-- Có thể dùng viết tắt (PR, CI/CD, etc.)
+- Use standard terminology
+- No explanation needed
+- Focus on implementation
+- Can use abbreviations (PR, CI/CD, etc.)
 
 ## Execution Logic
 
@@ -132,8 +132,8 @@ Set internal context for session:
 ### Step 3: Silent Operation
 
 This skill operates SILENTLY:
-- KHÔNG show indicator
-- KHÔNG notify user
+- Do NOT show indicator
+- Do NOT notify user
 - Just sets context for subsequent responses
 
 ## Integration with Workflows
@@ -176,8 +176,8 @@ If technical_level invalid:
 ```
 User: /deploy
 
-Output: "Sẵn sàng đưa ứng dụng lên mạng (deploy) cho người khác dùng.
-Em sẽ kiểm tra xem mọi thứ đã sẵn sàng chưa..."
+Output: "Ready to put the application online (deploy) for others to use.
+I will check if everything is ready..."
 ```
 
 **User level: technical**

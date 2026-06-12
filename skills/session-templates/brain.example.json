@@ -7,7 +7,7 @@
   },
   "project": {
     "name": "coffee-shop-manager",
-    "description": "Quản lý tiệm cà phê - đơn hàng, nhân viên, doanh thu",
+    "description": "Coffee shop management - orders, staff, revenue",
     "type": "fullstack",
     "status": "development",
     "repository": "https://github.com/user/coffee-shop-manager",
@@ -92,7 +92,7 @@
     "tables": [
       {
         "name": "users",
-        "description": "Nhân viên & Admin",
+        "description": "Staff & Admin",
         "columns": [
           { "name": "id", "type": "uuid", "primary": true },
           { "name": "email", "type": "string", "nullable": false },
@@ -103,7 +103,7 @@
       },
       {
         "name": "orders",
-        "description": "Đơn hàng",
+        "description": "Orders",
         "columns": [
           { "name": "id", "type": "uuid", "primary": true },
           { "name": "user_id", "type": "uuid", "foreign_key": "users.id" },
@@ -114,7 +114,7 @@
       },
       {
         "name": "order_items",
-        "description": "Chi tiết đơn hàng",
+        "description": "Order details",
         "columns": [
           { "name": "id", "type": "uuid", "primary": true },
           { "name": "order_id", "type": "uuid", "foreign_key": "orders.id" },
@@ -125,7 +125,7 @@
       },
       {
         "name": "menu_items",
-        "description": "Món trong menu",
+        "description": "Menu items",
         "columns": [
           { "name": "id", "type": "uuid", "primary": true },
           { "name": "name", "type": "string", "nullable": false },
@@ -136,16 +136,16 @@
       }
     ],
     "relationships": [
-      { "from": "orders", "to": "users", "type": "many-to-one", "description": "Mỗi order thuộc 1 user" },
-      { "from": "order_items", "to": "orders", "type": "many-to-one", "description": "Mỗi order có nhiều items" },
-      { "from": "order_items", "to": "menu_items", "type": "many-to-one", "description": "Mỗi item tham chiếu 1 menu item" }
+      { "from": "orders", "to": "users", "type": "many-to-one", "description": "Each order belongs to 1 user" },
+      { "from": "order_items", "to": "orders", "type": "many-to-one", "description": "Each order has many items" },
+      { "from": "order_items", "to": "menu_items", "type": "many-to-one", "description": "Each item references 1 menu item" }
     ]
   },
   "api_endpoints": [
     {
       "method": "POST",
       "path": "/api/auth/login",
-      "description": "Đăng nhập",
+      "description": "Login",
       "auth_required": false,
       "request_body": { "email": "string", "password": "string" },
       "response": { "token": "string", "user": "object" }
@@ -153,7 +153,7 @@
     {
       "method": "GET",
       "path": "/api/orders",
-      "description": "Lấy danh sách orders",
+      "description": "Get list of orders",
       "auth_required": true,
       "roles": ["ADMIN", "STAFF"],
       "response": { "orders": "array", "total": "number", "page": "number" }
@@ -161,7 +161,7 @@
     {
       "method": "POST",
       "path": "/api/orders",
-      "description": "Tạo order mới",
+      "description": "Create new order",
       "auth_required": true,
       "roles": ["STAFF"],
       "request_body": { "items": "array", "note": "string?" }
@@ -169,7 +169,7 @@
     {
       "method": "GET",
       "path": "/api/reports/revenue",
-      "description": "Báo cáo doanh thu",
+      "description": "Revenue report",
       "auth_required": true,
       "roles": ["ADMIN"],
       "response": { "daily": "array", "total": "number" }
@@ -179,21 +179,21 @@
     {
       "id": "BR001",
       "domain": "orders",
-      "rule": "Đơn hàng > 500,000 VND được giảm 5%",
+      "rule": "Orders > 500,000 VND get 5% discount",
       "implementation": "src/features/orders/utils/calculate-discount.ts",
-      "exceptions": ["Không áp dụng cho combo"]
+      "exceptions": ["Does not apply to combos"]
     },
     {
       "id": "BR002",
       "domain": "orders",
-      "rule": "Không thể hủy đơn đã COMPLETED",
+      "rule": "Cannot cancel COMPLETED orders",
       "implementation": "src/features/orders/actions/cancel-order.ts",
-      "exceptions": ["Admin có thể override"]
+      "exceptions": ["Admin can override"]
     },
     {
       "id": "BR003",
       "domain": "menu",
-      "rule": "Món hết hàng tự động ẩn khỏi menu",
+      "rule": "Out-of-stock items are automatically hidden from the menu",
       "implementation": "src/features/menu/hooks/use-available-items.ts",
       "exceptions": []
     }
@@ -204,21 +204,21 @@
       "status": "deployed",
       "spec_file": "docs/specs/auth_spec.md",
       "files": ["src/features/auth/**"],
-      "notes": "NextAuth v5 với Credentials provider"
+      "notes": "NextAuth v5 with Credentials provider"
     },
     {
       "name": "Order Management",
       "status": "implemented",
       "spec_file": "docs/specs/orders_spec.md",
       "files": ["src/features/orders/**"],
-      "notes": "CRUD hoàn chỉnh, đang test"
+      "notes": "Complete CRUD, testing"
     },
     {
       "name": "Revenue Reports",
       "status": "in_progress",
       "spec_file": "docs/specs/reports_spec.md",
       "files": ["src/features/reports/**"],
-      "notes": "Đang làm chart daily revenue"
+      "notes": "Developing daily revenue chart"
     },
     {
       "name": "VNPay Integration",
@@ -232,38 +232,38 @@
     "patterns": [
       {
         "name": "Server Actions",
-        "description": "Dùng Next.js Server Actions cho mutations",
+        "description": "Use Next.js Server Actions for mutations",
         "example_file": "src/features/orders/actions/create-order.ts"
       },
       {
         "name": "Optimistic Updates",
-        "description": "Zustand + optimistic UI cho UX mượt",
+        "description": "Zustand + optimistic UI for smooth UX",
         "example_file": "src/features/orders/stores/order-store.ts"
       }
     ],
     "gotchas": [
       {
         "issue": "Prisma client not found in production",
-        "cause": "Vercel cần generate prisma client trong build",
-        "solution": "Thêm 'prisma generate' vào postinstall script",
+        "cause": "Vercel needs to generate prisma client during build",
+        "solution": "Add 'prisma generate' to postinstall script",
         "affected_files": ["package.json"]
       },
       {
-        "issue": "NextAuth session null trên API routes",
-        "cause": "Cần wrap với auth() helper",
-        "solution": "Import auth từ @/lib/auth thay vì getServerSession",
+        "issue": "NextAuth session null on API routes",
+        "cause": "Need to wrap with auth() helper",
+        "solution": "Import auth from @/lib/auth instead of getServerSession",
         "affected_files": ["src/features/*/api/*.ts"]
       }
     ],
     "conventions": [
       {
         "area": "file naming",
-        "convention": "kebab-case cho files, PascalCase cho components",
+        "convention": "kebab-case for files, PascalCase for components",
         "example": "revenue-chart.tsx exports RevenueChart"
       },
       {
         "area": "API responses",
-        "convention": "Luôn wrap trong { data, error, message }",
+        "convention": "Always wrap in { data, error, message }",
         "example": "return { data: orders, error: null, message: 'Success' }"
       }
     ]

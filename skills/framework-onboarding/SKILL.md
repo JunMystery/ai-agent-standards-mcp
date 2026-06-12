@@ -9,14 +9,14 @@ version: 1.0.0
 
 # AI Agent Standards Onboarding
 
-Hướng dẫn người dùng mới làm quen với AI Agent Standards.
+Guide new users to get familiar with AI Agent Standards.
 
 ## Trigger Conditions
 
 **Activates when:**
-- User chạy `/init` lần đầu (không có `.brain/` folder)
-- User chạy `/help` và chưa có preferences
-- User nói "mới dùng", "hướng dẫn", "không biết bắt đầu"
+- User runs `/init` for the first time (no `.brain/` folder)
+- User runs `/help` and has no preferences yet
+- User says "new user", "guide", "don't know where to start"
 
 **Check:**
 ```
@@ -31,85 +31,85 @@ else:
 ### Step 1: Welcome Message
 
 ```
-👋 **CHÀO MỪNG ĐẾN VỚI AI Agent Standards!**
+👋 **WELCOME TO AI Agent Standards!**
 
-Em là trợ lý AI, sẽ giúp anh biến ý tưởng thành app thật.
+I am your AI assistant, and I will help you turn your ideas into a real app.
 
-🎯 AI Agent Standards có thể giúp anh:
-   • Tạo app/website từ con số 0
-   • Không cần biết code (em làm giùm!)
-   • Nhớ mọi thứ giữa các lần làm việc
+🎯 AI Agent Standards can help you:
+   • Create apps/websites from scratch
+   • No coding required (I will do it for you!)
+   • Remember everything between work sessions
 
-⏱️ Cho em 2 phút để hướng dẫn nhanh nhé?
+⏱️ Give me 2 minutes for a quick guide, okay?
 
-1️⃣ Có, hướng dẫn em đi
-2️⃣ Không cần, bắt đầu luôn
+1️⃣ Yes, guide me
+2️⃣ No need, start right away
 ```
 
-### Step 2: Quick Assessment (nếu chọn 1)
+### Step 2: Quick Assessment (if 1 is chosen)
 
 ```
-📊 **EM CẦN HIỂU ANH MỘT CHÚT:**
+📊 **I NEED TO UNDERSTAND YOU A LITTLE BIT:**
 
-Anh đã từng làm app/website chưa?
+Have you ever built an app/website before?
 
-1️⃣ Chưa bao giờ (newbie)
-   → Em sẽ giải thích mọi thứ đơn giản
+1️⃣ Never (newbie)
+   → I will explain everything simply
 
-2️⃣ Có biết chút chút (basic)
-   → Em giải thích khi cần
+2️⃣ Know a little bit (basic)
+   → I will explain when needed
 
-3️⃣ Dân IT rồi (technical)
-   → Em nói chuyện như đồng nghiệp
+3️⃣ IT professional (technical)
+   → I will talk like a colleague
 ```
 
 ### Step 3: 5 Commands Tour
 
 ```
-🗺️ **5 LỆNH QUAN TRỌNG NHẤT:**
+🗺️ **5 MOST IMPORTANT COMMANDS:**
 
 ┌─────────────────────────────────────────┐
 │ 1️⃣ /brainstorm                          │
-│    "Tôi có ý tưởng nhưng chưa rõ"       │
-│    → AI giúp làm rõ ý tưởng             │
+│    "I have an idea but it's not clear"  │
+│    → AI helps clarify the idea          │
 ├─────────────────────────────────────────┤
 │ 2️⃣ /plan                                │
-│    "Tôi biết muốn làm gì rồi"           │
-│    → AI lên kế hoạch chi tiết           │
+│    "I know what I want to do"           │
+│    → AI creates a detailed plan         │
 ├─────────────────────────────────────────┤
 │ 3️⃣ /code                                │
-│    "Bắt đầu viết code đi"               │
-│    → AI code theo kế hoạch              │
+│    "Start writing code"                 │
+│    → AI codes according to the plan     │
 ├─────────────────────────────────────────┤
 │ 4️⃣ /run                                 │
-│    "Chạy thử xem nào"                   │
-│    → Khởi động app để xem kết quả       │
+│    "Let's run and test"                 │
+│    → Start the app to see results       │
 ├─────────────────────────────────────────┤
 │ 5️⃣ /debug                               │
-│    "Có lỗi rồi, sửa giùm"               │
-│    → AI tìm và sửa lỗi                  │
+│    "There is an error, please fix it"   │
+│    → AI finds and fixes errors          │
 └─────────────────────────────────────────┘
 
-💡 Mẹo: Không cần nhớ hết! Gõ /next bất cứ lúc nào
-   để em gợi ý nên làm gì tiếp.
+💡 Tip: No need to remember everything! Type /next at any time
+   to have me suggest what to do next.
 ```
 
 ### Step 4: Quick Start Options
 
 ```
-🚀 **BẮT ĐẦU THÔI!**
+🚀 **LET'S START!**
 
-Anh muốn làm gì?
+What do you want to do?
 
-1️⃣ Tôi có ý tưởng app rồi → /plan
-2️⃣ Chưa rõ, muốn bàn trước → /brainstorm
-3️⃣ Hướng dẫn chi tiết hơn → /help
-4️⃣ Tùy chỉnh cách AI nói chuyện → /customize
+1️⃣ I already have an app idea → /plan
+2️⃣ Not clear, want to discuss first → /brainstorm
+3️⃣ More detailed instructions → /help
+4️⃣ Customize how AI talks → /customize
 ```
 
 ### Step 5: Initialize .brain/ Folder
 
-**Tạo folder structure:**
+**Create folder structure:**
 ```
 .brain/
 ├── preferences.json
@@ -183,24 +183,24 @@ Anh muốn làm gì?
 ### Step 6: Save & Complete
 
 ```
-✅ **HOÀN TẤT SETUP!**
+✅ **SETUP COMPLETE!**
 
-Em đã tạo:
+I have created:
 📁 .brain/
-   ├── preferences.json  (cài đặt của anh)
-   ├── session.json      (theo dõi tiến độ)
-   ├── session_log.txt   (nhật ký)
-   └── brain.json        (kiến thức dự án)
+   ├── preferences.json  (your settings)
+   ├── session.json      (progress tracking)
+   ├── session_log.txt   (log)
+   └── brain.json        (project knowledge)
 
-💾 Mọi thứ sẽ được tự động lưu từ giờ!
+💾 Everything will be automatically saved from now on!
 
 ────────────────────────
 
-Giờ anh muốn làm gì?
+What do you want to do now?
 
-1️⃣ Tạo dự án đầu tiên → /init
-2️⃣ Bàn ý tưởng trước → /brainstorm
-3️⃣ Xem hướng dẫn chi tiết → /help
+1️⃣ Create your first project → /init
+2️⃣ Discuss ideas first → /brainstorm
+3️⃣ See detailed guide → /help
 ```
 
 ## Returning User Detection
@@ -208,11 +208,11 @@ Giờ anh muốn làm gì?
 ```
 if exists("preferences.json") AND preferences.onboarding_completed == true:
 
-     Nếu > 7 ngày không dùng:
-          "👋 Chào mừng anh quay lại! Gõ /recap để em nhắc lại đang làm gì nhé."
+     If not used for > 7 days:
+          "👋 Welcome back! Type /recap to have me remind you what you were doing."
 
-     Nếu < 7 ngày:
-          Skip welcome, vào thẳng workflow
+     If < 7 days:
+          Skip welcome, go straight to workflow
 ```
 
 ## Error Handling
@@ -221,7 +221,7 @@ if exists("preferences.json") AND preferences.onboarding_completed == true:
 If cannot create .brain/ folder:
     Try create in current directory
     If still fail:
-        Warning: "⚠️ Em không tạo được folder lưu trữ, nhưng vẫn làm việc được!"
+        Warning: "⚠️ I could not create the storage folder, but we can still work!"
         Continue in-memory mode
 
 If user skips all steps:
@@ -231,14 +231,14 @@ If user skips all steps:
 
 ## Integration
 
-**Với /init:**
+**With /init:**
 ```
-/init được gọi
+/init is called
     ↓
 Check .brain/ folder
     ↓
-├── Không có → Chạy onboarding TRƯỚC
-└── Có rồi → Chạy /init bình thường
+├── Not exists → Run onboarding FIRST
+└── Exists → Run /init normally
 ```
 
 ## Performance

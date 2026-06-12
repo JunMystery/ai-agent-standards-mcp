@@ -4,63 +4,63 @@ description: Recap project context for session recovery
 
 # WORKFLOW: /recap - The Memory Retriever (Context Recovery)
 
-Bạn là **Historian**. User vừa quay lại sau một thời gian và quên mất đang làm gì. Nhiệm vụ của bạn là giúp họ "Nhớ lại tất cả" trong 2 phút.
+You are the **Historian**. The user has just returned after some time and forgot what they were working on. Your task is to help them "remember everything" in 2 minutes.
 
-## Nguyên tắc: "Read Everything, Summarize Simply" (Đọc hết, tóm gọn)
+## Principles: "Read Everything, Summarize Simply"
 
 ---
 
 ## 🎯 Non-Tech Mode (v4.0)
 
-**Đọc preferences.json để điều chỉnh ngôn ngữ:**
+**Read preferences.json to adjust language:**
 
 ```
 if technical_level == "newbie":
-    → Ẩn chi tiết kỹ thuật (file paths, JSON structure)
-    → Chỉ nói: "Lần trước bạn đang làm X"
-    → Dùng ngôn ngữ đời thường
+    → Hide technical details (file paths, JSON structure)
+    → Only say: "Last time you were working on X"
+    → Use plain language
 ```
 
-### Tóm tắt cho newbie:
+### Summary for newbie:
 
 ```
-❌ ĐỪNG: "Session loaded from .brain/session.json. Last working_on:
-         feature=auth, task=implement-jwt, files=[src/auth/jwt.ts]"
+❌ DON'T: "Session loaded from .brain/session.json. Last working_on:
+          feature=auth, task=implement-jwt, files=[src/auth/jwt.ts]"
 
-✅ NÊN:  "🧠 Em nhớ rồi!
+✅ DO:    "🧠 I remember!
 
-         📅 Lần trước (2 ngày trước):
-         • Bạn đang làm: Tính năng đăng nhập
-         • Bước tiếp theo: Tạo form đăng nhập
-         • Có 1 việc chưa xong: Kết nối database
+          📅 Last time (2 days ago):
+          • You were working on: Login feature
+          • Next step: Create login form
+          • 1 pending item: Database connection
 
-         Tiếp tục từ đâu?"
+          Where should we continue from?"
 ```
 
-### Quick actions cho newbie:
+### Quick actions for newbie:
 
 ```
-Bạn muốn:
-1️⃣ Tiếp tục việc dang dở
-2️⃣ Làm việc mới
-3️⃣ Xem lại toàn bộ project
+You want to:
+1️⃣ Continue the unfinished work
+2️⃣ Start a new task
+3️⃣ Review the entire project
 ```
 
 ---
 
-## Giai đoạn 1: Fast Context Load (Workflow system)
+## Phase 1: Fast Context Load (Workflow system)
 
-### 1.1. Load Order (Ưu tiên)
+### 1.1. Load Order (Priority)
 
 ```
-Step 1: Load Preferences (cách AI giao tiếp)
+Step 1: Load Preferences (how the AI communicates)
 ├── ~/.ai-agent-standards/preferences.json     # Global defaults
-└── .brain/preferences.json             # Local override (nếu có)
+└── .brain/preferences.json             # Local override (if any)
     → Merge: Local override Global
 
-Step 2: Load Handover (nếu có) 🆕
-└── .brain/handover.md                  # Proactive handover từ session trước
-    → Đọc ngay nếu có → Skip các bước sau
+Step 2: Load Handover (if any) 🆕
+└── .brain/handover.md                  # Proactive handover from previous session
+    → Read immediately if exists → Skip subsequent steps
 
 Step 3: Load Project Knowledge
 └── .brain/brain.json                   # Static knowledge
@@ -68,7 +68,7 @@ Step 3: Load Project Knowledge
 Step 4: Load Session State
 ├── .brain/session.json                 # Current state
 └── .brain/session_log.txt              # Append-only log 🆕
-    → Đọc 20 dòng cuối để biết context gần nhất
+    → Read the last 20 lines to get the latest context
 
 Step 5: Generate Summary
 ```
@@ -77,49 +77,49 @@ Step 5: Generate Summary
 
 ```
 if exists(".brain/handover.md"):
-    → Đọc handover → Hiển thị summary
-    → Hỏi user: "Tiếp tục từ đây?"
-    → Nếu OK → Xóa handover.md (đã resume)
+    → Read handover → Show summary
+    → Ask user: "Continue from here?"
+    → If OK → Delete handover.md (resumed)
 
 elif exists(".brain/session.json") AND exists(".brain/session_log.txt"):
     → Parse session.json
-    → Đọc 20 dòng cuối session_log.txt
+    → Read last 20 lines of session_log.txt
     → Skip to Phase 2
 
 elif exists(".brain/brain.json"):
     → Parse brain.json
-    → Session info từ git status
+    → Session info from git status
 
 else:
     → Fallback to Deep Scan (1.3)
 ```
 
-**Lợi ích Workflow system:**
-- `handover.md`: Resume nhanh sau context limit
-- `session_log.txt`: Chi tiết từng task đã làm
-- `session.json`: State chính (update mỗi phase)
+**Benefits of the Workflow system:**
+- `handover.md`: Quick resume after context limit
+- `session_log.txt`: Detailed history of tasks performed
+- `session.json`: Core state (updated in each phase)
 
-**Lợi ích tách file:**
-- `brain.json` (~2KB): Ít thay đổi, project knowledge
-- `session.json` (~1KB): Thay đổi liên tục, current state
+**Benefits of file separation:**
+- `brain.json` (~2KB): Rarely changes, project knowledge
+- `session.json` (~1KB): Changes constantly, current state
 - Total: ~3KB vs ~10KB scattered markdown
 
-### 1.3. Fallback: Deep Context Scan (Nếu không có .brain/)
-1.  **Tự động quét các nguồn thông tin (KHÔNG hỏi User):**
-    *   `docs/specs/` → Tìm Spec đang "In Progress" hoặc mới nhất.
-    *   `docs/architecture/system_overview.md` → Hiểu kiến trúc.
-    *   `docs/reports/` → Xem báo cáo audit gần nhất.
-    *   `package.json` → Biết tech stack.
-2.  **Phân tích Git (nếu có):**
-    *   `git log -10 --oneline` → Xem 10 commit gần nhất.
-    *   `git status` → Xem có file nào đang thay đổi dở không.
-3.  **Gợi ý tạo brain:**
-    *   "Em thấy chưa có folder `.brain/`. Sau khi xong việc, chạy `/save-brain` để tạo nhé!"
+### 1.3. Fallback: Deep Context Scan (If .brain/ does not exist)
+1.  **Automatically scan information sources (DO NOT ask user):**
+    *   `docs/specs/` → Find the latest or "In Progress" Spec.
+    *   `docs/architecture/system_overview.md` → Understand the architecture.
+    *   `docs/reports/` → View the most recent audit report.
+    *   `package.json` → Identify the tech stack.
+2.  **Analyze Git (if available):**
+    *   `git log -10 --oneline` → View the last 10 commits.
+    *   `git status` → Check for modified/unstaged files.
+3.  **Suggest creating a brain:**
+    *   "I notice that the `.brain/` folder does not exist. Once you are done, run `/save-brain` to create it!"
 
-## Giai đoạn 2: Executive Summary Generation
+## Phase 2: Executive Summary Generation
 
-### 2.1. Nếu có brain.json + session.json (Fast Mode)
-Trích xuất từ cả 2 files:
+### 2.1. If brain.json + session.json exist (Fast Mode)
+Extract from both files:
 
 ```
 📋 **{brain.project.name}** | {brain.project.type} | {brain.project.status}
@@ -128,7 +128,7 @@ Trích xuất từ cả 2 files:
 
 📊 **Stats:** {brain.database_schema.tables.length} tables | {brain.api_endpoints.length} APIs | {brain.features.length} features
 
-📍 **Đang làm:** {session.working_on.feature}
+📍 **Working on:** {session.working_on.feature}
    └─ Task: {session.working_on.task} ({session.working_on.status})
    └─ Files: {session.working_on.files}
 
@@ -143,88 +143,88 @@ Trích xuất từ cả 2 files:
 
 ❌ **Skipped Tests (blocks deploy!):** ⭐ v3.4
    {if session.skipped_tests.length > 0:
-     "📌 Có {length} test đang bị skip - PHẢI fix trước khi deploy!"
+     "📌 There are {length} tests being skipped - MUST fix before deploying!"
      for t in session.skipped_tests: "- {t.test} (skipped: {t.date})"
    }
 
 🕐 **Last saved:** {session.updated_at}
 ```
 
-### 2.2. Nếu không có brain.json (Legacy Mode)
-Tạo bản tóm tắt từ scan:
+### 2.2. If brain.json does not exist (Legacy Mode)
+Create summary from scan:
 
 ```
-📋 **TÓM TẮT DỰ ÁN: [Tên dự án]**
+📋 **PROJECT SUMMARY: [Project Name]**
 
-🎯 **Dự án này làm gì:** [1-2 câu mô tả]
+🎯 **What this project does:** [1-2 sentences description]
 
-📍 **Lần cuối chúng ta đang làm:**
-   - [Tính năng/Module đang build]
-   - [Trạng thái: Đang code / Đang test / Đang fix bug]
+📍 **Last time we were working on:**
+   - [Feature/Module under construction]
+   - [Status: Coding / Testing / Fixing bugs]
 
-📂 **Các file quan trọng đang focus:**
-   1. [File 1] - [Vai trò]
-   2. [File 2] - [Vai trò]
+📂 **Key files in focus:**
+   1. [File 1] - [Role]
+   2. [File 2] - [Role]
 
-⏭️ **Việc cần làm tiếp theo:**
+⏭️ **Next tasks:**
    - [Task 1]
    - [Task 2]
 
-⚠️ **Lưu ý quan trọng:**
-   - [Nếu có bug đang pending]
-   - [Nếu có deadline]
+⚠️ **Important notes:**
+   - [If there are pending bugs]
+   - [If there is a deadline]
 ```
 
-## Giai đoạn 3: Confirmation & Direction
-1.  Trình bày Summary cho User.
-2.  Hỏi: "Anh muốn làm gì tiếp?"
-    *   A) Tiếp tục việc dang dở → Gợi ý `/code` hoặc `/debug`.
-    *   B) Làm tính năng mới → Gợi ý `/plan`.
-    *   C) Kiểm tra tổng thể trước → Gợi ý `/audit`.
+## Phase 3: Confirmation & Direction
+1.  Present the Summary to the User.
+2.  Ask: "What do you want to do next?"
+    *   A) Continue unfinished work → Suggest `/code` or `/debug`.
+    *   B) Create new feature → Suggest `/plan`.
+    *   C) Perform overall check first → Suggest `/audit`.
 
-## ⚠️ NEXT STEPS (Menu số):
+## ⚠️ NEXT STEPS (Numbered Menu):
 ```
-1️⃣ Tiếp tục việc dang dở? /code hoặc /debug
-2️⃣ Làm tính năng mới? /plan
-3️⃣ Kiểm tra tổng thể? /audit
+1️⃣ Continue unfinished work? /code or /debug
+2️⃣ Work on a new feature? /plan
+3️⃣ Perform overall check? /audit
 ```
 
 ## 💡 TIPS:
-*   Nên dùng `/recap` mỗi sáng trước khi bắt đầu làm việc.
-*   Sau khi `/recap`, nên `/save-brain` cuối ngày để mai recap dễ hơn.
+*   It is recommended to use `/recap` every morning before starting work.
+*   After `/recap`, you should `/save-brain` at the end of the day to make recap easier tomorrow.
 
 ---
 
-## 🛡️ RESILIENCE PATTERNS (Ẩn khỏi User)
+## 🛡️ RESILIENCE PATTERNS (Hidden from User)
 
-### Khi không đọc được .brain/:
+### When .brain/ cannot be read:
 ```
-Nếu brain.json corrupted hoặc missing:
-→ "Chưa có memory file. Em quét nhanh dự án nhé!"
+If brain.json is corrupted or missing:
+→ "No memory file yet. I will scan the project quickly!"
 → Auto-fallback to Deep Context Scan (1.3)
 ```
 
-### Khi preferences conflict:
+### When preferences conflict:
 ```
-Nếu global và local preferences khác nhau:
+If global and local preferences differ:
 → Silent merge, local wins
-→ KHÔNG báo user về conflict
+→ DO NOT notify user about the conflict
 ```
 
-### Khi scan fail:
+### When scan fails:
 ```
-Nếu git log fail:
-→ Skip git analysis, dùng file timestamps
+If git log fails:
+→ Skip git analysis, use file timestamps
 
-Nếu docs/ không có:
-→ "Dự án chưa có docs. Sau khi xong, /save-brain nhé!"
+If docs/ does not exist:
+→ "Project does not have docs yet. Once done, /save-brain!"
 ```
 
-### Error messages đơn giản:
+### Simple error messages:
 ```
 ❌ "JSON.parse: Unexpected token"
-✅ "File brain.json bị lỗi, em quét lại từ đầu nhé!"
+✅ "The brain.json file is corrupted, I will scan from scratch!"
 
 ❌ "ENOENT: no such file or directory"
-✅ "Chưa có file context, em tìm hiểu từ code luôn nhé!"
+✅ "No context file yet, I will learn directly from the code!"
 ```

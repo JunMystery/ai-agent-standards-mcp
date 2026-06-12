@@ -4,70 +4,70 @@ description: Comprehensive workflow command guide for AI-assisted project work
 
 # 🚀 workflow framework v2.0
 
-**Hệ thống Workflow TOÀN DIỆN cho mọi trình độ** - Từ newbie đến pro, AI đều lo được.
+**COMPREHENSIVE Workflow System for all levels** - From newbie to pro, AI has it covered.
 
-> 💡 **Triết lý Workflow system:**
-> - AI ĐỀ XUẤT, Bạn DUYỆT (Smart Proposal)
-> - Mỗi workflow có PERSONA riêng (PM, Developer, Designer, Detective...)
-> - KHÔNG BAO GIỜ mất context (Lazy Checkpoint + Proactive Handover)
-
----
-
-## 📋 Danh sách lệnh (15 Workflows)
-
-### 🌟 Khởi động & Ngữ cảnh
-| Lệnh | Mô tả | Điểm mù được xử lý |
-|------|-------|-------------------|
-| `/init` | Tạo dự án mới hoàn chỉnh | Env vars, Git, Code quality tools |
-| `/recap` | Tóm tắt context khi quay lại | Context recovery |
-| `/save-brain` | Lưu kiến thức cuối buổi | API Docs, Changelog, Business rules |
-
-### 🎯 Phát triển tính năng
-| Lệnh | Mô tả | Điểm mù được xử lý |
-|------|-------|-------------------|
-| `/plan` | Thiết kế tính năng (Smart Proposal) | Auth, DB, Charts, Scheduled Tasks |
-| `/design` | **Thiết kế chi tiết** ⭐ NEW | Database, Luồng hoạt động, Acceptance Criteria |
-| `/visualize` | Thiết kế UI/UX đẹp | Loading/Error states, Accessibility |
-| `/code` | Viết code chất lượng | Security, Validation, Error handling |
-
-### ⚙️ Vận hành
-| Lệnh | Mô tả | Điểm mù được xử lý |
-|------|-------|-------------------|
-| `/run` | Khởi động app | Environment detection, Port conflicts |
-| `/test` | Kiểm tra logic | Auto-generate tests nếu thiếu |
-| `/deploy` | Đưa lên production | SEO, Analytics, Legal, Backup, Monitoring |
-
-### 🔧 Bảo trì
-| Lệnh | Mô tả | Điểm mù được xử lý |
-|------|-------|-------------------|
-| `/debug` | Sửa lỗi (Investigation Protocol) | Giả thuyết + 3 lần thử max |
-| `/refactor` | Dọn dẹp code | Safe execution, Before/After comparison |
-| `/audit` | Kiểm tra sức khỏe | Security, Performance, Dependencies |
-| `/rollback` | Quay về phiên bản cũ | Emergency recovery |
-| `/review` | **Tổng quan dự án** ⭐ NEW | Bàn giao, đánh giá, lên kế hoạch nâng cấp |
-
+> 💡 **Workflow system philosophy:**
+> - AI PROPOSES, You APPROVE (Smart Proposal)
+> - Each workflow has its own PERSONA (PM, Developer, Designer, Detective...)
+> - NEVER lose context (Lazy Checkpoint + Proactive Handover)
 
 ---
 
-## 🔥 ĐIỂM MÙ VIBE CODER ĐÃ ĐƯỢC XỬ LÝ TOÀN DIỆN
+## 📋 Command List (15 Workflows)
 
-### 📐 Khi lên kế hoạch (`/plan`)
-| Điểm mù | AI tự hỏi |
+### 🌟 Startup & Context
+| Command | Description | Blind spots handled |
+|------|-------|-------------------|
+| `/init` | Create a complete new project | Env vars, Git, Code quality tools |
+| `/recap` | Summarize context when returning | Context recovery |
+| `/save-brain` | Save knowledge at the end of session | API Docs, Changelog, Business rules |
+
+### 🎯 Feature Development
+| Command | Description | Blind spots handled |
+|------|-------|-------------------|
+| `/plan` | Design feature (Smart Proposal) | Auth, DB, Charts, Scheduled Tasks |
+| `/design` | **Detailed design** ⭐ NEW | Database, Workflows, Acceptance Criteria |
+| `/visualize` | Beautiful UI/UX design | Loading/Error states, Accessibility |
+| `/code` | Write high-quality code | Security, Validation, Error handling |
+
+### ⚙️ Operations
+| Command | Description | Blind spots handled |
+|------|-------|-------------------|
+| `/run` | Start the app | Environment detection, Port conflicts |
+| `/test` | Test logic | Auto-generate tests if missing |
+| `/deploy` | Deploy to production | SEO, Analytics, Legal, Backup, Monitoring |
+
+### 🔧 Maintenance
+| Command | Description | Blind spots handled |
+|------|-------|-------------------|
+| `/debug` | Fix errors (Investigation Protocol) | Hypothesis + 3 max attempts |
+| `/refactor` | Refactor code | Safe execution, Before/After comparison |
+| `/audit` | Health check | Security, Performance, Dependencies |
+| `/rollback` | Rollback to old version | Emergency recovery |
+| `/review` | **Project overview** ⭐ NEW | Handover, evaluation, upgrade planning |
+
+
+---
+
+## 🔥 VIBE CODER BLIND SPOTS COMPREHENSIVELY HANDLED
+
+### 📐 During planning (`/plan`)
+| Blind spot | AI asks itself |
 |---------|-----------|
-| Database Design | "Có dữ liệu sẵn không? Quản lý những gì?" |
-| Auth/Login | "Cần đăng nhập không? OAuth? Roles?" |
-| File Upload | "Có upload hình không? Size limit?" |
-| Email/Notifications | "Cần gửi thông báo không?" |
-| Payment | "Có nhận thanh toán không?" |
-| Search | "Có tìm kiếm không? Fuzzy?" |
-| Scheduled Tasks | "Có cần tự động chạy hàng ngày?" |
-| Charts/Graphs | "Có cần biểu đồ không?" |
-| PDF/Print | "Có cần in hóa đơn không?" |
-| Maps | "Có cần bản đồ không?" |
-| Real-time | "Có cần live updates không?" |
+| Database Design | "Is there existing data? What needs to be managed?" |
+| Auth/Login | "Is login required? OAuth? Roles?" |
+| File Upload | "Is image upload needed? Size limit?" |
+| Email/Notifications | "Need to send notifications?" |
+| Payment | "Is payment processing needed?" |
+| Search | "Is search functionality needed? Fuzzy search?" |
+| Scheduled Tasks | "Are automated daily tasks required?" |
+| Charts/Graphs | "Are charts/graphs required?" |
+| PDF/Print | "Need to print invoices/receipts?" |
+| Maps | "Are maps required?" |
+| Real-time | "Are live updates needed?" |
 
-### 🎨 Khi thiết kế UI (`/visualize`)
-| Điểm mù | AI tự xử lý |
+### 🎨 During UI design (`/visualize`)
+| Blind spot | AI handles automatically |
 |---------|-------------|
 | Loading States | Skeleton, Spinner, Progress bar |
 | Error States | Toast, Modal, Inline error |
@@ -76,8 +76,8 @@ description: Comprehensive workflow command guide for AI-assisted project work
 | Mobile | Responsive, Touch-friendly |
 | Dark Mode | Dual theme design |
 
-### 🚀 Khi deploy (`/deploy`)
-| Điểm mù | AI tự xử lý |
+### 🚀 During deployment (`/deploy`)
+| Blind spot | AI handles automatically |
 |---------|-------------|
 | SEO | Meta tags, Sitemap, robots.txt |
 | Analytics | Google Analytics / Plausible |
@@ -87,97 +87,97 @@ description: Comprehensive workflow command guide for AI-assisted project work
 | SSL | Auto HTTPS |
 | Maintenance | Maintenance mode page |
 
-### 📚 Khi lưu trữ (`/save-brain`)
-| Điểm mù | AI tự tạo |
+### 📚 During saving/storage (`/save-brain`)
+| Blind spot | AI auto-generates |
 |---------|-----------|
-| API Documentation | Auto-generate từ routes |
+| API Documentation | Auto-generate from routes |
 | Changelog | Version history |
-| Business Rules | Quy tắc nghiệp vụ |
+| Business Rules | Business rules |
 | **Structured Context** | `.brain/brain.json` ⭐ NEW |
 
 ---
 
-## 🚀 Workflow system - TÍNH NĂNG MỚI
+## 🚀 Workflow system - NEW FEATURES
 
-### 1️⃣ Deep Interview (3 Câu Hỏi Vàng)
-Trước khi đề xuất, AI hỏi 3 câu cốt lõi:
-- Quản lý GÌ?
-- AI dùng?
-- Điều gì QUAN TRỌNG NHẤT?
+### 1️⃣ Deep Interview (3 Golden Questions)
+Before proposing, AI asks 3 core questions:
+- WHAT to manage?
+- WHO uses it?
+- What is MOST IMPORTANT?
 
-→ Giúp AI hiểu đúng từ đầu, tránh làm sai rồi sửa.
+→ Helps AI understand correctly from the beginning, avoiding errors and rework.
 
-### 2️⃣ Lazy Checkpoint (Tiết kiệm tokens)
+### 2️⃣ Lazy Checkpoint (Save tokens)
 ```
 .brain/
-├── session.json        # Update mỗi PHASE (~450 tokens)
-└── session_log.txt     # Append mỗi TASK (~20 tokens)
+├── session.json        # Update every PHASE (~450 tokens)
+└── session_log.txt     # Append every TASK (~20 tokens)
 ```
-→ Giảm 80% token overhead so với rewrite JSON mỗi task.
+→ Reduces token overhead by 80% compared to rewriting JSON for every task.
 
 ### 3️⃣ Proactive Handover
-Khi context > 80% đầy:
-- AI tự tạo Handover Document
-- Lưu vào `.brain/handover.md`
-- Session sau gõ `/recap` để resume ngay
+When context is > 80% full:
+- AI auto-generates Handover Document
+- Saved to `.brain/handover.md`
+- Next session, type `/recap` to resume immediately
 
-→ KHÔNG BAO GIỜ mất context giữa sessions.
+→ NEVER lose context between sessions.
 
 ### 4️⃣ Step Confirmation Protocol
-Sau mỗi milestone, hiển thị:
+After each milestone, display:
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ ĐÃ XONG: [Task name]
-📊 Tiến độ: ████████░░ 80%
+✅ DONE: [Task name]
+📊 Progress: ████████░░ 80%
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-→ Tiếp? (y/điều chỉnh/dừng)
+→ Continue? (y/adjust/stop)
 ```
-→ User luôn biết đang ở đâu, không bị "mất kiểm soát".
+→ Users always know where they are, avoiding feeling "out of control".
 
 ### 5️⃣ Agent Personas (BMAD-Inspired)
-| Workflow | Persona | Tính cách |
+| Workflow | Persona | Personality / Tone |
 |----------|---------|-----------|
-| `/plan` | Hà (PM) | Lắng nghe, đề xuất options |
-| `/design` | Minh (Architect) | Giải thích kỹ thuật đơn giản |
-| `/code` | Tuấn (Senior Dev) | Cẩn thận, kiểm tra kỹ |
-| `/visualize` | Mai (UX Designer) | Visual, dùng ví dụ |
-| `/debug` | Long (Detective) | Điềm tĩnh, có phương pháp |
-| `/audit` | Khang (Bác sĩ Code) | Không gây hoang mang |
+| `/plan` | Ha (PM) | Listens, proposes options |
+| `/design` | Minh (Architect) | Explains technical concepts simply |
+| `/code` | Tuan (Senior Dev) | Meticulous, checks thoroughly |
+| `/visualize` | Mai (UX Designer) | Visual, uses examples |
+| `/debug` | Long (Detective) | Calm, methodical |
+| `/audit` | Khang (Code Doctor) | Calm/reassuring tone |
 
 ---
 
-## 🧠 Structured Context - v3.3 (Tách brain + session)
+## 🧠 Structured Context - v3.3 (Separate brain + session)
 
-### Vấn đề v3.2
-- `brain.json` chứa cả static và dynamic data
-- Mỗi lần save phải update toàn bộ file
-- Session state lẫn với project knowledge
+### Problem in v3.2
+- `brain.json` contains both static and dynamic data
+- Every save requires updating the entire file
+- Session state is mixed with project knowledge
 
-### Giải pháp v3.3: Tách thành 2 files
+### Solution in v3.3: Separate into 2 files
 ```
 .brain/                            # LOCAL (per-project)
-├── brain.json                     # 🧠 Static knowledge (ít thay đổi)
-├── session.json                   # 📍 Dynamic session (thay đổi liên tục)
-└── preferences.json               # ⚙️ Local override (nếu khác global)
+├── brain.json                     # 🧠 Static knowledge (rarely changes)
+├── session.json                   # 📍 Dynamic session (changes constantly)
+└── preferences.json               # ⚙️ Local override (if different from global)
 
-~/.ai-agent-standards/                    # GLOBAL (tất cả dự án)
+~/.ai-agent-standards/                    # GLOBAL (all projects)
 ├── preferences.json               # Default AI preferences
 └── defaults/                      # Templates
 ```
 
-### Lợi ích
+### Benefits
 | Metric | v3.2 | v3.3 |
 |--------|------|------|
-| Files để scan | 1 (brain.json) | 2 (brain + session) |
-| Token usage | ~3KB | ~3KB (tương đương) |
-| Update frequency | Mỗi lần save | brain: khi project thay đổi, session: liên tục |
+| Files to scan | 1 (brain.json) | 2 (brain + session) |
+| Token usage | ~3KB | ~3KB (equivalent) |
+| Update frequency | Every save | brain: when project changes, session: constantly |
 | Scope | Local only | Local + Global preferences |
 
 ### Workflow
 ```
-/save-brain → Update brain.json (nếu cần) + session.json (luôn)
+/save-brain → Update brain.json (if needed) + session.json (always)
 /recap → Load preferences → brain.json → session.json → Summary
-/customize → Save preferences (local/global/cả hai)
+/customize → Save preferences (local/global/both)
 ```
 
 ### Schema files
@@ -190,112 +190,112 @@ Sau mỗi milestone, hiển thị:
 - `templates/session.example.json` ⭐ NEW
 - `templates/preferences.example.json` ⭐ NEW
 
-### brain.json (Static - ít thay đổi)
-- `project`: Tên, loại, status
+### brain.json (Static - rarely changes)
+- `project`: Name, type, status
 - `tech_stack`: Frontend, Backend, DB, Dependencies
 - `database_schema`: Tables, Relationships
-- `api_endpoints`: Routes với auth info
-- `business_rules`: Quy tắc nghiệp vụ
-- `features`: Tính năng và trạng thái
+- `api_endpoints`: Routes with auth info
+- `business_rules`: Business rules
+- `features`: Features and statuses
 - `knowledge_items`: Patterns, Gotchas, Conventions
 
-### session.json (Dynamic - thay đổi liên tục) ⭐ NEW
-- `working_on`: Feature, task, status, files đang sửa
-- `pending_tasks`: Việc cần làm tiếp
-- `recent_changes`: Thay đổi gần đây
-- `errors_encountered`: Lỗi gặp và cách fix
-- `decisions_made`: Quyết định đã lấy trong session
+### session.json (Dynamic - constantly changing) ⭐ NEW
+- `working_on`: Feature, task, status, files being modified
+- `pending_tasks`: Tasks to do next
+- `recent_changes`: Recent changes
+- `errors_encountered`: Errors encountered and how to fix them
+- `decisions_made`: Decisions made in this session
 
 ### preferences.json (User settings) ⭐ NEW
 - `communication`: Tone, persona
 - `technical`: Detail level, autonomy, quality
 - `working_style`: Pace, feedback style
-- `custom_rules`: Quy tắc riêng của user
+- `custom_rules`: User's custom rules
 
 ---
 
-## 🛡️ Resilience Patterns - v3.3 (Ẩn khỏi User)
+## 🛡️ Resilience Patterns - v3.3 (Hidden from User)
 
-> **Nguyên tắc:** User không cần biết về retry, timeout, fallback. AI xử lý ngầm.
+> **Principle:** Users do not need to know about retry, timeout, fallback. AI handles them in the background.
 
-### Auto-Retry (Ẩn)
+### Auto-Retry (Hidden)
 ```
-Khi gặp lỗi transient (network, rate limit):
-1. Retry lần 1 (đợi 1s)
-2. Retry lần 2 (đợi 2s)
-3. Retry lần 3 (đợi 4s)
-4. Nếu vẫn fail → Báo user bằng tiếng đơn giản
-```
-
-### Timeout Protection (Ẩn)
-```
-Mỗi task có timeout mặc định:
-- /code: 5 phút
-- /deploy: 10 phút
-- /debug: 5 phút
-- Khác: 3 phút
-
-Khi timeout → "Việc này đang lâu quá, anh muốn tiếp tục không?"
+When encountering a transient error (network, rate limit):
+1. Retry 1st time (wait 1s)
+2. Retry 2nd time (wait 2s)
+3. Retry 3rd time (wait 4s)
+4. If still failing → Notify user in simple language
 ```
 
-### Fallback Conversation (Hiển thị khi cần)
+### Timeout Protection (Hidden)
 ```
-Thay vì syntax phức tạp như: /deploy production || staging
+Each task has a default timeout:
+- /code: 5 minutes
+- /deploy: 10 minutes
+- /debug: 5 minutes
+- Others: 3 minutes
 
-AI hỏi bằng tiếng Việt:
-"Deploy lên production không được 😅
- Anh muốn thử staging trước không?
- 1️⃣ Có - Deploy staging
- 2️⃣ Không - Em xem lại lỗi"
+Upon timeout → "This is taking too long, do you want to continue?"
 ```
 
-### Error Messages (Đơn giản hóa)
+### Fallback Conversation (Shown when needed)
 ```
-❌ Cũ: "Error: ECONNREFUSED 127.0.0.1:5432 - Connection refused"
+Instead of complex syntax like: /deploy production || staging
 
-✅ Mới: "Không kết nối được database 😅
-        Anh kiểm tra xem PostgreSQL đang chạy chưa nhé!
-        Gõ /debug nếu cần em hỗ trợ."
+AI asks in simple language:
+"Could not deploy to production 😅
+ Do you want to try staging first?
+ 1️⃣ Yes - Deploy staging
+ 2️⃣ No - I will inspect the error"
+```
+
+### Error Messages (Simplified)
+```
+❌ Old: "Error: ECONNREFUSED 127.0.0.1:5432 - Connection refused"
+
+✅ New: "Could not connect to database 😅
+        Please check if PostgreSQL is running!
+        Type /debug if you need my help."
 ```
 
 ### Error Categories
-| Loại lỗi | AI xử lý | User thấy |
+| Error Type | AI Action | User Sees |
 |----------|----------|-----------|
-| Network timeout | Auto-retry 3x | Không thấy gì (nếu thành công) |
-| Rate limit | Đợi và retry | "Đang chờ API..." |
-| Auth failed | Báo ngay | "Cần kiểm tra lại credentials" |
-| Code syntax | Gợi ý fix | "Có lỗi ở file X, gõ /debug" |
-| Build failed | Phân tích log | "Build lỗi vì Y, em đề xuất..." |
+| Network timeout | Auto-retry 3x | Nothing (if successful) |
+| Rate limit | Wait and retry | "Waiting for API..." |
+| Auth failed | Report immediately | "Please check your credentials" |
+| Code syntax | Suggest fix | "Error in file X, type /debug" |
+| Build failed | Analyze log | "Build failed due to Y, I propose..." |
 
 ---
 
-## 🎮 Luồng làm việc khuyến nghị
+## 🎮 Recommended Workflow
 
-### 📦 Dự án mới
+### 📦 New project
 ```
 /init → /plan → /visualize → /code → /run → /test → /deploy → /save-brain
 ```
 
-### 🌅 Bắt đầu ngày mới
+### 🌅 Starting a new day
 ```
 /recap → /code → /run → /test → /save-brain
 ```
 
-### 🐛 Khi gặp lỗi
+### 🐛 Encountering errors
 ```
-/debug → /test → (nếu loạn) /rollback
+/debug → /test → (if messy) /rollback
 ```
 
-### 🚀 Trước release
+### 🚀 Before release
 ```
 /audit → /test → /deploy → /save-brain
 ```
 
 ---
 
-## 📊 Thống kê hệ thống v3.4
+## 📊 System Statistics v3.4
 
-| Workflow | Size | Chất lượng |
+| Workflow | Size | Quality |
 |----------|------|------------|
 | `/plan` | **5.4KB** | ⭐⭐⭐⭐⭐ Ultimate |
 | `/deploy` | **5.3KB** | ⭐⭐⭐⭐⭐ Ultimate |
@@ -312,17 +312,17 @@ AI hỏi bằng tiếng Việt:
 | `/recap` | 2.4KB | ⭐⭐⭐⭐ Good |
 | `/rollback` | 2.2KB | ⭐⭐⭐⭐ Good |
 
-**Tổng:** 13 workflows | **~55KB** instructions | **50+ điểm mù** được xử lý
+**Total:** 13 workflows | **~55KB** instructions | **50+ blind spots** handled
 
 ---
 
-## 💡 Tips cho Vibe Coder
+## 💡 Tips for Vibe Coders
 
-1. **Cứ nói tự nhiên** - AI sẽ hỏi lại nếu thiếu
-2. **Không sợ làm sai** - Có `/rollback`
-3. **Cuối ngày `/save-brain`** - Mai không mất context
-4. **Định kỳ `/audit`** - Phòng bệnh hơn chữa bệnh
-5. **Trước release `/deploy`** - SEO, Analytics, Legal đầy đủ
+1. **Just speak naturally** - AI will ask if anything is missing
+2. **Don't fear making mistakes** - `/rollback` is available
+3. **`/save-brain` at the end of the day** - No context lost tomorrow
+4. **`/audit` periodically** - Prevention is better than cure
+5. **`/deploy` before release** - Fully covers SEO, Analytics, Legal
 
 ---
 

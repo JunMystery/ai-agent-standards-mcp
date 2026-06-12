@@ -9,13 +9,13 @@ version: 1.0.0
 
 # AI Agent Standards Context Help
 
-Trợ giúp thông minh dựa trên context hiện tại.
+Smart help based on the current context.
 
 ## Trigger Conditions
 
 **Activates when:**
 - User runs `/help`
-- User types "?", "giúp", "help", "làm sao"
+- User types "?", "help", "how"
 - User seems confused (repeated errors, long pause)
 
 ## Execution Logic
@@ -54,94 +54,94 @@ if exists(".brain/brain.json"):
 
 ### No Project State
 ```
-🆕 Chưa có dự án
+🆕 No project yet
 
-Bạn có thể:
-1. /brainstorm - Bàn ý tưởng trước
-2. /init - Tạo dự án mới
-3. Mô tả ý tưởng cho em nghe
+You can:
+1. /brainstorm - Discuss ideas first
+2. /init - Create a new project
+3. Describe your idea to me
 
-Em sẽ hướng dẫn từng bước!
+I will guide you step-by-step!
 ```
 
 ### Planning State
 ```
-📋 Đang lập kế hoạch: {context.workflow}
+📋 Planning: {context.workflow}
 
-Bạn có thể:
-1. Tiếp tục plan hiện tại
-2. /code - Bắt đầu code phase đầu tiên
-3. Hỏi em về cách thiết kế
+You can:
+1. Continue the current plan
+2. /code - Start the first coding phase
+3. Ask me about the design
 
-💡 Mẹo: Plan tốt = Code nhanh hơn!
+💡 Tip: Good plan = Faster coding!
 ```
 
 ### Coding State
 ```
-💻 Đang code: {context.task}
+💻 Coding: {context.task}
    Status: {context.status}
 
-Bạn có thể:
-1. Tiếp tục code
-2. /test - Kiểm tra code vừa viết
-3. /debug - Nếu gặp lỗi
-4. /save-brain - Lưu tiến độ
+You can:
+1. Continue coding
+2. /test - Check the code you just wrote
+3. /debug - If you encounter an error
+4. /save-brain - Save progress
 
 💡 Pending tasks: {context.pending.length}
 ```
 
 ### Debugging State
 ```
-🔧 Đang debug: {context.task}
+🔧 Debugging: {context.task}
 
-Bạn có thể:
-1. Mô tả lỗi chi tiết hơn
-2. Paste error message
-3. /code - Quay lại code sau khi fix
+You can:
+1. Describe the error in more detail
+2. Paste the error message
+3. /code - Go back to coding after fixing
 
-💡 Mẹo: Copy paste lỗi giúp em hiểu nhanh hơn!
+💡 Tip: Copying and pasting errors helps me understand faster!
 ```
 
 ### Deploying State
 ```
-🚀 Đang deploy: {context.workflow}
+🚀 Deploying: {context.workflow}
 
-Bạn có thể:
-1. Tiếp tục deploy process
-2. /rollback - Quay về bản trước nếu lỗi
-3. Kiểm tra logs sau deploy
+You can:
+1. Continue the deployment process
+2. /rollback - Rollback to the previous version if there is an error
+3. Check the logs after deployment
 
-⚠️ Nhớ test kỹ trước khi deploy production!
+⚠️ Remember to test thoroughly before deploying to production!
 ```
 
 ### Stuck State
 ```
-😅 Có vẻ bạn đang bị kẹt
+😅 It seems you are stuck
 
-Thử những cách này:
-1. /recap - Xem lại đang làm gì
-2. /debug - Nếu có lỗi
-3. Nghỉ 5 phút rồi quay lại
-4. Hỏi em cụ thể vấn đề
+Try these ways:
+1. /recap - Review what you are doing
+2. /debug - If there is an error
+3. Take a 5-minute break and come back
+4. Ask me about the specific problem
 
-💡 {context.pending.length} tasks đang chờ.
-   Có thể tạm skip task khó, làm cái khác trước?
+💡 {context.pending.length} pending tasks.
+   Can temporarily skip the difficult task and do something else first?
 ```
 
 ### Idle/General State
 ```
-👋 Em có thể giúp gì?
+👋 How can I help you?
 
-Lệnh phổ biến:
+Common commands:
 ┌─────────────────────────────────────┐
-│ /next       │ Gợi ý việc tiếp theo  │
-│ /recap      │ Nhớ lại context       │
-│ /brainstorm │ Bàn ý tưởng mới       │
-│ /plan       │ Lập kế hoạch          │
-│ /code       │ Viết code             │
+│ /next      │ Suggest the next task  │
+│ /recap     │ Recall context         │
+│ /brainstorm│ Discuss new ideas      │
+│ /plan      │ Plan                   │
+│ /code      │ Write code             │
 └─────────────────────────────────────┘
 
-Hoặc hỏi em bất cứ điều gì!
+Or ask me anything!
 ```
 
 ## Adaptive Language
@@ -149,28 +149,28 @@ Hoặc hỏi em bất cứ điều gì!
 Help responses adapt to `technical_level`:
 
 **newbie:**
-- Dùng tiếng Việt thuần
-- Giải thích mọi khái niệm
-- Bước nhỏ, chi tiết
+- Use pure Vietnamese
+- Explain every concept
+- Small, detailed steps
 
 **basic:**
-- Mix Việt-Anh
-- Giải thích term lần đầu
-- Bước vừa phải
+- Mix Vietnamese-English
+- Explain terms on first occurrence
+- Moderate steps
 
 **technical:**
-- Dùng thuật ngữ chuẩn
-- Không cần giải thích
-- Tập trung action
+- Use standard terminology
+- No explanation needed
+- Focus on action
 
 ## Fallback
 
 If context unreadable:
 ```
-👋 Em ở đây giúp bạn!
+👋 I am here to help you!
 
-Gõ /next để em gợi ý việc cần làm,
-hoặc mô tả vấn đề cho em nghe.
+Type /next for me to suggest what to do,
+or describe your problem to me.
 ```
 
 ## Performance

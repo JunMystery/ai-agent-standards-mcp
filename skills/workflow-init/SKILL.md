@@ -2,57 +2,57 @@
 description: Initialize a new project workspace
 ---
 
-# WORKFLOW: /init - Khởi Tạo Dự Án
+# WORKFLOW: /init - Initialize Project
 
-**Vai trò:** Project Initializer
-**Mục tiêu:** Capture ý tưởng và tạo workspace cơ bản. KHÔNG install packages, KHÔNG setup database.
+**Role:** Project Initializer
+**Goal:** Capture ideas and create a basic workspace. DO NOT install packages, DO NOT setup database.
 
-**NGÔN NGỮ: Luôn trả lời bằng tiếng Việt.**
+**LANGUAGE: Always reply in English.**
 
 ---
 
 ## Flow Position
 
 ```
-[/init] ← BẠN ĐANG Ở ĐÂY
+[/init] ← YOU ARE HERE
    ↓
-/brainstorm (nếu chưa rõ ý tưởng)
+/brainstorm (if the idea is not yet clear)
    ↓
-/plan (lên kế hoạch features)
+/plan (plan features)
    ↓
-/design (thiết kế kỹ thuật)
+/design (technical design)
    ↓
-/code (viết code)
+/code (write code)
 ```
 
 ---
 
-## Stage 1: Capture Vision (HỎI NGẮN GỌN)
+## Stage 1: Capture Vision (ASK BRIEFLY)
 
-### 1.1. Tên dự án
-"Tên dự án là gì? (VD: my-coffee-app)"
+### 1.1. Project Name
+"What is the project name? (e.g., my-coffee-app)"
 
-### 1.2. Mô tả 1 câu
-"Mô tả ngắn gọn app làm gì? (1-2 câu)"
+### 1.2. 1-sentence description
+"Briefly describe what the app does? (1-2 sentences)"
 
-### 1.3. Vị trí
-"Tạo ở thư mục hiện tại hay chỗ khác?"
+### 1.3. Location
+"Create in the current directory or somewhere else?"
 
-**XONG. Không hỏi thêm.**
+**DONE. Do not ask more.**
 
 ---
 
-## Stage 2: Tạo Workspace (CHỈ TẠO FOLDER)
+## Stage 2: Create Workspace (FOLDER ONLY)
 
-Chỉ tạo cấu trúc folder cơ bản:
+Only create basic folder structure:
 
 ```
 {project-name}/
 ├── .brain/
 │   └── brain.json      # Project context (empty template)
 ├── docs/
-│   └── ideas.md        # Ghi ý tưởng
-└── README.md           # Tên + mô tả
+│   └── ideas.md        # Write down ideas
+└── README.md           # Name + description
 ```
 
 ### brain.json template:
@@ -60,7 +60,7 @@ Chỉ tạo cấu trúc folder cơ bản:
 {
   "project": {
     "name": "{project-name}",
-    "description": "{mô tả}",
+    "description": "{description}",
     "created_at": "{timestamp}"
   },
   "tech_stack": [],
@@ -73,73 +73,73 @@ Chỉ tạo cấu trúc folder cơ bản:
 ```markdown
 # {Project Name}
 
-{Mô tả 1 câu}
+{1-sentence description}
 
 ## Status: 🚧 Planning
 
-Dự án đang trong giai đoạn lên ý tưởng.
+The project is currently in the ideation phase.
 
 ## Next Steps
 
-1. Gõ `/brainstorm` để explore ý tưởng
-2. Hoặc `/plan` nếu đã rõ muốn làm gì
+1. Type `/brainstorm` to explore ideas
+2. Or `/plan` if you already know what you want to do
 ```
 
 ---
 
-## Stage 3: Xác nhận & Hướng dẫn
+## Stage 3: Confirmation & Guidance
 
 ```
-✅ Đã tạo workspace cho "{project-name}"!
+✅ Workspace created for "{project-name}"!
 
-📁 Vị trí: {path}
+📁 Location: {path}
 
-🚀 BƯỚC TIẾP THEO:
+🚀 NEXT STEPS:
 
-Chọn 1 trong 2:
+Choose 1 of 2:
 
-1️⃣ /brainstorm - Nếu chưa rõ muốn làm gì, cần explore ý tưởng
-2️⃣ /plan - Nếu đã biết rõ features cần làm
+1️⃣ /brainstorm - If you are not sure what to do yet, need to explore ideas
+2️⃣ /plan - If you already know the features that need to be made
 
-💡 Tip: Newbie nên chọn /brainstorm trước!
+💡 Tip: Newbies should choose /brainstorm first!
 ```
 
 ---
 
-## QUAN TRỌNG - KHÔNG LÀM
+## IMPORTANT - DO NOT DO
 
-❌ KHÔNG install packages (để /code làm)
-❌ KHÔNG setup database (để /design làm)
-❌ KHÔNG tạo code files (để /code làm)
-❌ KHÔNG chạy npm/yarn/pnpm
-❌ KHÔNG hỏi về tech stack (AI sẽ tự quyết sau)
+❌ DO NOT install packages (let /code do it)
+❌ DO NOT setup database (let /design do it)
+❌ DO NOT create code files (let /code do it)
+❌ DO NOT run npm/yarn/pnpm
+❌ DO NOT ask about tech stack (AI will decide later)
 
 ---
 
 ## First-time User
 
-Nếu chưa có `.brain/preferences.json`:
+If `.brain/preferences.json` does not exist yet:
 
 ```
-👋 Chào mừng bạn đến với AI Agent Standards!
+👋 Welcome to AI Agent Standards!
 
-Đây là lần đầu dùng. Bạn muốn:
-1️⃣ Dùng mặc định (Recommended)
-2️⃣ Tùy chỉnh (/customize)
+This is your first time. Do you want to:
+1️⃣ Use defaults (Recommended)
+2️⃣ Customize (/customize)
 ```
 
 ---
 
 ## Error Handling
 
-### Folder đã tồn tại:
+### Folder already exists:
 ```
-⚠️ Folder "{name}" đã có rồi.
-1️⃣ Dùng folder này (có thể ghi đè)
-2️⃣ Đổi tên khác
+⚠️ Folder "{name}" already exists.
+1️⃣ Use this folder (may overwrite)
+2️⃣ Rename it
 ```
 
-### Không có quyền tạo folder:
+### No permission to create folder:
 ```
-❌ Không tạo được folder. Kiểm tra quyền write nhé!
+❌ Could not create folder. Please check write permissions!
 ```
