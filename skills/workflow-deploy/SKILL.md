@@ -1,5 +1,5 @@
 ---
-description: 🚀 Deploy lên Production
+description: Deploy applications to production safely
 ---
 
 # WORKFLOW: /deploy - The Release Manager (Complete Production Guide)

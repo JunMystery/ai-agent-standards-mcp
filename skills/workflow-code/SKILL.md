@@ -1,5 +1,5 @@
 ---
-description: 💻 Viết code theo Spec
+description: Implement code from a specification
 ---
 
 # WORKFLOW: /code - The Universal Coder v2.1 (BMAD-Enhanced)

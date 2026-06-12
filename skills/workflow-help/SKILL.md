@@ -1,5 +1,5 @@
 ---
-description: ❓ Trợ giúp & Hướng dẫn
+description: Help and workflow guidance center
 ---
 
 # WORKFLOW: /help - The Guide Center

@@ -1,5 +1,5 @@
 ---
-description: 🧠 Tóm tắt dự án
+description: Recap project context for session recovery
 ---
 
 # WORKFLOW: /recap - The Memory Retriever (Context Recovery)

@@ -1,5 +1,5 @@
 ---
-description: 🎨 Thiết kế chi tiết trước khi code
+description: Design implementation details before coding
 ---
 
 # WORKFLOW: /design - The Solution Architect (BMAD-Inspired)

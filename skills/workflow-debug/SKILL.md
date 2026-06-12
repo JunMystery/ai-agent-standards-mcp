@@ -1,5 +1,5 @@
 ---
-description: 🐛 Sửa lỗi
+description: Debug and fix errors systematically
 ---
 
 # WORKFLOW: /debug - The Detective v2.1 (BMAD-Enhanced)

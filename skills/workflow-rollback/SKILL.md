@@ -1,5 +1,5 @@
 ---
-description: ⏪ Quay lại phiên bản cũ
+description: Roll back to a previous safe state
 ---
 
 # WORKFLOW: /rollback - The Time Machine (Emergency Recovery)

@@ -1,5 +1,5 @@
 ---
-description: 💡 Brainstorm & Research ý tưởng
+description: Brainstorm and research product ideas
 ---
 
 # WORKFLOW: /brainstorm - The Discovery Phase

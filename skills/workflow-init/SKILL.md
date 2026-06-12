@@ -1,5 +1,5 @@
 ---
-description: Khởi tạo dự án mới
+description: Initialize a new project workspace
 ---
 
 # WORKFLOW: /init - Khởi Tạo Dự Án

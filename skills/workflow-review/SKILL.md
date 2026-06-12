@@ -1,5 +1,5 @@
 ---
-description: 📊 Tổng quan & Bàn giao dự án
+description: Review and hand over project context
 ---
 
 # WORKFLOW: /review - The Project Scanner

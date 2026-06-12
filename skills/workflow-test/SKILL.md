@@ -1,5 +1,5 @@
 ---
-description: ✅ Chạy kiểm thử
+description: Run tests and verify behavior
 ---
 
 # WORKFLOW: /test - The Quality Guardian (Smart Testing)

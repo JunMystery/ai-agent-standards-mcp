@@ -1,5 +1,5 @@
 ---
-description: 🖼️ Thiết kế UI/UX mockup
+description: Create UI and UX mockups
 ---
 
 # WORKFLOW: /visualize - The Creative Partner v2.0 (Workflow system)
@@ -466,4 +466,3 @@ Tiếp tục? (y/điều chỉnh bước trước)
 3️⃣ Chỉnh sửa màn hình này? Nói chi tiết
 4️⃣ Lưu và nghỉ? /save-brain
 ```
-

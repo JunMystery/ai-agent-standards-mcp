@@ -1,5 +1,5 @@
 ---
-description: 💾 Lưu kiến thức dự án
+description: Save project knowledge and session context
 ---
 
 # WORKFLOW: /save-brain - The Infinite Memory Keeper v2.0

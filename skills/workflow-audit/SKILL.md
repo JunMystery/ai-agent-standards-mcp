@@ -1,5 +1,5 @@
 ---
-description: 🏥 Kiểm tra code & bảo mật
+description: Code and security audit workflow
 ---
 
 # WORKFLOW: /audit - The Code Doctor v2.1 (BMAD-Enhanced)

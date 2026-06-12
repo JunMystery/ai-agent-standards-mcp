@@ -1,5 +1,5 @@
 ---
-description: ▶️ Chạy ứng dụng
+description: Run and monitor the application locally
 ---
 
 # WORKFLOW: /run - The Application Launcher (Smart Start)

@@ -1,6 +1,6 @@
 # Skills Overview
 
-This document provides a comprehensive directory of the **290** local skills packaged with the AI Agent Coding Standards MCP Server.
+This document provides a comprehensive directory of the **289** local skills packaged with the AI Agent Coding Standards MCP Server.
 
 | Skill / Tool Name | Description | When to Use |
 | :--- | :--- | :--- |
@@ -271,25 +271,25 @@ This document provides a comprehensive directory of the **290** local skills pac
 | [`visa-doc-translate`](../skills/visa-doc-translate/SKILL.md) | Translate visa application documents (images) to English and create a bilingual PDF with original and translation | General workflow enhancement. |
 | [`vite-patterns`](../skills/vite-patterns/SKILL.md) | Vite build tool patterns including config, plugins, HMR, env variables, proxy setup, SSR, library mode, dependency pre-bundling, and build optimization. Activate when working wi... | Configuring `vite.config.ts` or `vite.config.js` / Setting up environment variables or `.env` files / Configuring dev server proxy for API backends / Optimizing build output (ch... |
 | [`windows-desktop-e2e`](../skills/windows-desktop-e2e/SKILL.md) | E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation. | General workflow enhancement. |
-| [`workflow-audit`](../skills/workflow-audit/SKILL.md) | 🏥 Kiểm tra code & bảo mật | General workflow enhancement. |
-| [`workflow-brainstorm`](../skills/workflow-brainstorm/SKILL.md) | 💡 Brainstorm & Research ý tưởng | General workflow enhancement. |
-| [`workflow-code`](../skills/workflow-code/SKILL.md) | 💻 Viết code theo Spec | General workflow enhancement. |
-| [`workflow-customize`](../skills/workflow-customize/SKILL.md) | ⚙️ Cá nhân hóa trải nghiệm AI | General workflow enhancement. |
-| [`workflow-debug`](../skills/workflow-debug/SKILL.md) | 🐛 Sửa lỗi | General workflow enhancement. |
-| [`workflow-deploy`](../skills/workflow-deploy/SKILL.md) | 🚀 Deploy lên Production | General workflow enhancement. |
-| [`workflow-design`](../skills/workflow-design/SKILL.md) | 🎨 Thiết kế chi tiết trước khi code | General workflow enhancement. |
-| [`workflow-help`](../skills/workflow-help/SKILL.md) | ❓ Trợ giúp & Hướng dẫn | General workflow enhancement. |
-| [`workflow-init`](../skills/workflow-init/SKILL.md) | Khởi tạo dự án mới | General workflow enhancement. |
-| [`workflow-next`](../skills/workflow-next/SKILL.md) | ➡️ Không biết làm gì tiếp? | General workflow enhancement. |
-| [`workflow-plan`](../skills/workflow-plan/SKILL.md) | 📝 Thiết kế tính năng | General workflow enhancement. |
-| [`workflow-readme`](../skills/workflow-readme/SKILL.md) | **Hệ thống Workflow TOÀN DIỆN cho mọi trình độ** - Từ newbie đến pro, AI đều lo được. | General workflow enhancement. |
-| [`workflow-recap`](../skills/workflow-recap/SKILL.md) | 🧠 Tóm tắt dự án | General workflow enhancement. |
-| [`workflow-refactor`](../skills/workflow-refactor/SKILL.md) | 🧹 Dọn dẹp & tối ưu code | General workflow enhancement. |
-| [`workflow-review`](../skills/workflow-review/SKILL.md) | 📊 Tổng quan & Bàn giao dự án | General workflow enhancement. |
-| [`workflow-rollback`](../skills/workflow-rollback/SKILL.md) | ⏪ Quay lại phiên bản cũ | General workflow enhancement. |
-| [`workflow-run`](../skills/workflow-run/SKILL.md) | ▶️ Chạy ứng dụng | General workflow enhancement. |
-| [`workflow-save_brain`](../skills/workflow-save_brain/SKILL.md) | 💾 Lưu kiến thức dự án | General workflow enhancement. |
-| [`workflow-test`](../skills/workflow-test/SKILL.md) | ✅ Chạy kiểm thử | General workflow enhancement. |
-| [`workflow-visualize`](../skills/workflow-visualize/SKILL.md) | 🖼️ Thiết kế UI/UX mockup | General workflow enhancement. |
+| [`workflow-audit`](../skills/workflow-audit/SKILL.md) | Code and security audit workflow | General workflow enhancement. |
+| [`workflow-brainstorm`](../skills/workflow-brainstorm/SKILL.md) | Brainstorm and research product ideas | General workflow enhancement. |
+| [`workflow-code`](../skills/workflow-code/SKILL.md) | Implement code from a specification | General workflow enhancement. |
+| [`workflow-customize`](../skills/workflow-customize/SKILL.md) | Personalize the AI working experience | General workflow enhancement. |
+| [`workflow-debug`](../skills/workflow-debug/SKILL.md) | Debug and fix errors systematically | General workflow enhancement. |
+| [`workflow-deploy`](../skills/workflow-deploy/SKILL.md) | Deploy applications to production safely | General workflow enhancement. |
+| [`workflow-design`](../skills/workflow-design/SKILL.md) | Design implementation details before coding | General workflow enhancement. |
+| [`workflow-help`](../skills/workflow-help/SKILL.md) | Help and workflow guidance center | General workflow enhancement. |
+| [`workflow-init`](../skills/workflow-init/SKILL.md) | Initialize a new project workspace | General workflow enhancement. |
+| [`workflow-next`](../skills/workflow-next/SKILL.md) | Recommend the next project action | General workflow enhancement. |
+| [`workflow-plan`](../skills/workflow-plan/SKILL.md) | Plan and scope a feature | General workflow enhancement. |
+| [`workflow-readme`](../skills/workflow-readme/SKILL.md) | Comprehensive workflow command guide for AI-assisted project work | General workflow enhancement. |
+| [`workflow-recap`](../skills/workflow-recap/SKILL.md) | Recap project context for session recovery | General workflow enhancement. |
+| [`workflow-refactor`](../skills/workflow-refactor/SKILL.md) | Clean up and optimize code safely | General workflow enhancement. |
+| [`workflow-review`](../skills/workflow-review/SKILL.md) | Review and hand over project context | General workflow enhancement. |
+| [`workflow-rollback`](../skills/workflow-rollback/SKILL.md) | Roll back to a previous safe state | General workflow enhancement. |
+| [`workflow-run`](../skills/workflow-run/SKILL.md) | Run and monitor the application locally | General workflow enhancement. |
+| [`workflow-save_brain`](../skills/workflow-save_brain/SKILL.md) | Save project knowledge and session context | General workflow enhancement. |
+| [`workflow-test`](../skills/workflow-test/SKILL.md) | Run tests and verify behavior | General workflow enhancement. |
+| [`workflow-visualize`](../skills/workflow-visualize/SKILL.md) | Create UI and UX mockups | General workflow enhancement. |
 | [`workspace-surface-audit`](../skills/workspace-surface-audit/SKILL.md) | Audit the active repo, MCP servers, plugins, connectors, env surfaces, and harness setup, then recommend the highest-value ECC-native skills, hooks, agents, and operator workflo... | User says "set up Claude Code", "recommend automations", "what plugins or MCPs should I use?", or "what am I missing?" / Auditing a machine or repo before installing more skills... |
 | [`x-api`](../skills/x-api/SKILL.md) | X/Twitter API integration for posting tweets, threads, reading timelines, search, and analytics. Covers OAuth auth patterns, rate limits, and platform-native content posting. Us... | General workflow enhancement. |

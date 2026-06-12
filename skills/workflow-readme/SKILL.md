@@ -1,3 +1,7 @@
+---
+description: Comprehensive workflow command guide for AI-assisted project work
+---
+
 # 🚀 workflow framework v2.0
 
 **Hệ thống Workflow TOÀN DIỆN cho mọi trình độ** - Từ newbie đến pro, AI đều lo được.

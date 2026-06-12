@@ -1,5 +1,5 @@
 ---
-description: 📝 Thiết kế tính năng
+description: Plan and scope a feature
 ---
 
 # WORKFLOW: /plan - The Logic Architect v3.1 (BMAD-Enhanced)

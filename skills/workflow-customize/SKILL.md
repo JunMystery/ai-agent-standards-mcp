@@ -1,5 +1,5 @@
 ---
-description: ⚙️ Cá nhân hóa trải nghiệm AI
+description: Personalize the AI working experience
 ---
 
 # WORKFLOW: /customize - Personalization Settings

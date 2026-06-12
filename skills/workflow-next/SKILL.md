@@ -1,5 +1,5 @@
 ---
-description: ➡️ Không biết làm gì tiếp?
+description: Recommend the next project action
 ---
 
 # WORKFLOW: /next - The Compass v2.0 (Workflow system)
