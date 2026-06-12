@@ -65,3 +65,27 @@ def test_missing_entry_raises_key_error():
 
     with pytest.raises(KeyError):
         catalog.read_entry("does-not-exist")
+
+
+def test_read_bounded_text_handles_invalid_utf8():
+    import os
+    import tempfile
+    from pathlib import Path
+    from agent_guidance_mcp.project_scan import read_bounded_text
+
+    fd, path_str = tempfile.mkstemp()
+    try:
+        os.write(fd, b"Hello \xff World")
+        os.close(fd)
+
+        content, truncated = read_bounded_text(Path(path_str), 100)
+        assert content is not None
+        assert "Hello" in content
+        assert "World" in content
+        assert "\ufffd" in content
+        assert truncated is False
+    finally:
+        try:
+            os.remove(path_str)
+        except OSError:
+            pass

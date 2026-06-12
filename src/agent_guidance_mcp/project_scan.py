@@ -181,8 +181,8 @@ def read_bounded_text(path: Path, max_bytes: int) -> tuple[str | None, bool]:
         data = data[:max_bytes]
 
     try:
-        return data.decode("utf-8"), truncated
-    except UnicodeDecodeError:
+        return data.decode("utf-8", errors="replace"), truncated
+    except Exception:
         return None, False
 
 

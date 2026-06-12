@@ -32,6 +32,8 @@ pythonpath = ["src"]
 packages = ["src/agent_guidance_mcp"]
 
 [tool.hatch.build.targets.wheel.force-include]
+"README.md" = "agent_guidance_mcp/bundled/README.md"
+"PROJECT-STANDARDS.md" = "agent_guidance_mcp/bundled/PROJECT-STANDARDS.md"
 "SKILL-REFERENCE.md" = "agent_guidance_mcp/bundled/SKILL-REFERENCE.md"
 "docs" = "agent_guidance_mcp/bundled/docs"
 "karpathy" = "agent_guidance_mcp/bundled/karpathy"
